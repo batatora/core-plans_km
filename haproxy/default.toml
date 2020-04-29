@@ -1,7 +1,6 @@
 maxconn = 32
 mode = "http"
 bind = "*:80"
-httpchk = "GET /favicon.ico"
 
 [[server]]
 name = "first"
