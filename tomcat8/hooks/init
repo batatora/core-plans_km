@@ -1,6 +1,6 @@
 #!/bin/sh
 
-debug() { if [ ! -z "$DEBUG" ]; then echo "$*"; fi }
+function debug { if [ ! -z "$DEBUG" ]; then echo "$*"; fi }
 
 echo "Preparing TOMCAT_HOME..."
 
