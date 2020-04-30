@@ -89,13 +89,9 @@ ARGF.each_line do |file|
   # Parse out the package identifier and the dependencies from the Bash program
   ident, _, deps_str = raw.partition(/\n/)
   # Add the package ident to a key in an "all deps" hash with the value being
-  # an array of dependency package identifiers, but drop ourself so we
-  # don't an infinitely recursive result set. This would happen if we
-  # depend on a previous version of ourself, for example, `go`
-  # requires `go` to build a newer `go`
+  # an array of dependency package identifiers
   all_deps.add(ident, deps_str.split(' ')
-    .map { |d| d.split('/').first(2).join('/') }
-    .reject { |i| i == ident })
+    .map { |d| d.split('/').first(2).join('/') })
   # Add the pacakge ident to a key in a "plan" hash with the value being
   # the path to the directory containing the relevant `plan.sh`
   ident_to_plan[ident] = \
