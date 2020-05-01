@@ -11,14 +11,12 @@ pkg_source=false
 pkg_deps=(
   core/coreutils
   core/ruby
-  core/net-tools
 )
 pkg_build_deps=(
   core/bundler
   core/coreutils
   core/gcc
   core/make
-  core/readline
 )
 pkg_bin_dirs=(bin)
 
