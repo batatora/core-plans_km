@@ -19,4 +19,3 @@ To become a maintainer, open a pull request to this list.
 * [Nathan L Smith](https://github.com/smith)
 * [Joshua Timberman](https://github.com/jtimberman)
 * [Jamie Winsor](https://github.com/reset)
-* [Mike Fiedler](https://github.com/miketheman)
