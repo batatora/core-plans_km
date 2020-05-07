@@ -38,6 +38,9 @@ do_prepare() {
     build_line "Applying patch: $patchfile"
     patch -i "$HAB_CACHE_SRC_PATH/$patchfile"
   done <"$HAB_CACHE_SRC_PATH/series"
+
+  PKG_CONFIG_PATH="$(pkg_path_for libbsd)/lib/pkgconfig"
+  export PKG_CONFIG_PATH
 }
 
 do_build() {

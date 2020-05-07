@@ -12,9 +12,11 @@ pkg_filename=${pkg_name}-${pkg_version}.tar.gz
 pkg_deps=(core/go)
 pkg_build_deps=(core/go core/coreutils core/gcc core/make)
 pkg_bin_dirs=(bin)
-pkg_svc_run="${pkg_name}-${pkg_version}"
+pkg_svc_run="$pkg_prefix/${pkg_name}-${pkg_version}"
+
 
 do_build() {
+  export PATH=$PATH:$GOROOT/bin
   export GOPATH=/hab/cache/src/gnatsd-0.9.4
   mkdir -p ./src/github.com/nats-io/gnatsd
 
@@ -24,12 +26,11 @@ do_build() {
   cp -r conf ./src/github.com/nats-io/gnatsd
   cp -r util ./src/github.com/nats-io/gnatsd
   cp -r vendor ./src/github.com/nats-io/gnatsd
+
   go build
 }
 
 
 do_install() {
-  mkdir -p "${pkg_prefix}/bin"
   cp -R . "${pkg_prefix}"
-  ln -s "${pkg_prefix}/${pkg_name}-${pkg_version}" "${pkg_prefix}/bin/${pkg_name}-${pkg_version}"
 }
