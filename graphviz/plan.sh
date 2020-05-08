@@ -1,12 +1,12 @@
-pkg_name=jemalloc
-pkg_description="jemalloc"
-pkg_upstream_url=http://www.canonware.com/jemalloc/
+pkg_name=graphviz
+pkg_description="Graphviz - Graph Visualization Software"
+pkg_upstream_url=http://www.graphviz.org/
 pkg_origin=core
-pkg_version=4.2.1
+pkg_version=2.38.0
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
-pkg_license=('BSD-2-Clause')
-pkg_source=https://github.com/jemalloc/jemalloc/archive/${pkg_version}.tar.gz
-pkg_shasum=38abd5c3798dee4bd0e63e082502358cd341b831b038bb443e89370df888a3eb
+pkg_license=("EPL-1.0")
+pkg_source=http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-${pkg_version}.tar.gz
+pkg_shasum=81aa238d9d4a010afa73a9d2a704fc3221c731e1e06577c2ab3496bdef67859e
 pkg_dirname=${pkg_name}-${pkg_version}
 pkg_deps=(core/glibc)
 
@@ -28,6 +28,6 @@ do_build() {
 }
 
 do_install() {
-    make install_bin install_include install_lib
+    make install
     install -Dm644 COPYING "${pkg_prefix}/share/licenses/license.txt"
 }
