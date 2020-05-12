@@ -75,19 +75,19 @@
   #
   # Path to directory where to store the data (separate multiple locations by comma):
   #
-  data =    ""
+  data =    "/hab/svc/elasticsearch/data"
   #
   # Path to log files:
   #
-  logs =    "logs"
+  logs =    "/hab/svc/elasticsearch/var/logs"
   #
   # Path to plugins:
   #
-  plugins = "plugins"
+  plugins = "/hab/svc/elasticsearch/var/plugins"
   #
   # Path to scripts directory
   #
-  scripts = "scripts"
+  scripts = "/hab/svc/elasticsearch/config/scripts"
 
 #
 # ----------------------------------- Indices ----------------------------------
