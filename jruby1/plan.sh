@@ -5,7 +5,7 @@ pkg_version=1.7.25
 pkg_source=https://github.com/jruby/jruby/archive/${pkg_version}.tar.gz
 pkg_shasum=4e17872bc38cf6c0ff238a365d2046e36e3149d0d381df2198fd949902602c9c
 pkg_license=('EPL 1.0, GPL 2 and LGPL 2.1')
-pkg_deps=(core/glibc core/server-jre core/bash)
+pkg_deps=(core/glibc core/jre8 core/bash)
 pkg_build_deps=(core/which core/make core/jdk8 core/coreutils)
 pkg_bin_dirs=(bin)
 pkg_include_dirs=(include)
@@ -23,4 +23,8 @@ do_install() {
     [[ -f $binstub ]] && sed -e "s#/usr/bin/env bash#$(pkg_path_for bash)/bin/bash#" -i $binstub
     [[ -f $binstub ]] && sed -e "s#/usr/bin/env jruby#${pkg_prefix}/bin/jruby#" -i $binstub
   done
+
+  # Remove *.so for other platforms...they cause `do_strip()' to fail
+  # with `Unable to recognise the format' errors
+  find $pkg_prefix/lib/jni/ -maxdepth 1 -mindepth 1 -type d -not -name "x86_64-Linux" -exec rm -rf "{}" \;
 }
