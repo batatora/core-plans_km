@@ -1,7 +1,5 @@
 #!/bin/sh
 
-exec 2>&1
-
 echo "Preparing ARTIFACTORY_HOME..."
 
 # Move directories that ship in the package into place
@@ -25,3 +23,5 @@ do
   echo "Linking $config"
   ln -sf {{pkg.svc_config_path}}/$config {{pkg.svc_var_path}}/etc/$config
 done
+
+chown -R hab:hab {{pkg.svc_path}}/*
