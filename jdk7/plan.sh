@@ -1,9 +1,9 @@
 pkg_origin=core
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_name=jdk7
-pkg_version=7u80
+pkg_version=7u79
 pkg_source=http://download.oracle.com/otn-pub/java/jdk/${pkg_version}-b15/jdk-${pkg_version}-linux-x64.tar.gz
-pkg_shasum=bad9a731639655118740bee119139c1ed019737ec802a630dd7ad7aab4309623
+pkg_shasum=29d75d0022bfa211867b876ddd31a271b551fa10727401398295e6e666a11d90
 pkg_filename=jdk-${pkg_version}-linux-x64.tar.gz
 pkg_license=('Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX')
 pkg_description=('Oracle Java Development Kit. This package is made available to you to allow you to run your applications as provided in and subject to the terms of the Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX, found at http://www.oracle.com/technetwork/java/javase/terms/license/index.html')
@@ -72,10 +72,7 @@ do_install() {
     -exec sh -c 'file -i "$1" | grep -q "x-executable; charset=binary"' _ {} \; \
     -exec patchelf --interpreter "$(pkg_path_for glibc)/lib/ld-linux-x86-64.so.2" --set-rpath "$LD_RUN_PATH" {} \;
 
-  find "$pkg_prefix/jre/lib/amd64" -type f \
-    -exec patchelf --set-rpath "${LD_RUN_PATH}" {} \;
-
-  find "$pkg_prefix/lib/amd64/jli" -name '*.so' -type f \
+  find $pkg_prefix/lib/amd64/jli/*.so $pkg_prefix/jre/lib/amd64 -type f \
     -exec patchelf --set-rpath "${LD_RUN_PATH}" {} \;
 }
 
