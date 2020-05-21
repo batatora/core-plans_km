@@ -106,9 +106,6 @@ do_install() {
 
   # Remove unneeded Windows files
   rm -fv "$pkg_prefix/src/*.bat"
-
-  # Move header files to the correct place
-  cp -arv "$pkg_prefix/src/runtime" "$pkg_prefix/pkg/include"
 }
 
 do_strip() {
