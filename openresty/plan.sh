@@ -10,10 +10,13 @@ pkg_shasum=7f9ca62cfa1e4aedf29df9169aed0395fd1b90de254139996e554367db4d5a01
 pkg_deps=(core/glibc core/gcc-libs core/libxml2 core/libxslt core/zlib core/bzip2 core/openssl core/pcre core/coreutils core/perl core/which)
 pkg_build_deps=(core/gcc core/make)
 pkg_lib_dirs=(lib)
-pkg_bin_dirs=(bin)
+pkg_bin_dirs=(bin nginx/sbin luajit/bin)
 pkg_include_dirs=(include)
 pkg_svc_user="root"
-pkg_expose=(80 443)
+pkg_exports=(
+  [port]=http.listen.port
+)
+pkg_exposes=(port)
 
 do_prepare() {
   # The `/usr/bin/env` path is hardcoded, so we'll add a symlink.
