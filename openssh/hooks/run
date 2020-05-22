@@ -1,5 +1,4 @@
 #!/bin/bash
 
 exec 2>&1
-
-exec sshd -D -f {{pkg.svc_config_path}}/sshd_config
+exec $(hab pkg path core/openssh)/sbin/sshd -D -f {{pkg.svc_config_path}}/sshd_config

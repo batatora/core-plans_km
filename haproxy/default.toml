@@ -1,18 +1,7 @@
 maxconn = 32
-httpchk = "GET /"
-
-[front-end]
-listen = "*"
-port = 80
 mode = "http"
-
-[status]
-enabled = false
-listen = "*"
-port = 9000
-user = "admin"
-password = "password"
-uri = "/haproxy-stats"
+bind = "*:80"
+httpchk = "GET /"
 
 [[server]]
 name = "first"

@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec {{pkg.path}}/bin/sqlservr 2>&1
