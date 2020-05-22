@@ -17,10 +17,7 @@ pkg_build_deps=(
   core/node
   core/patchelf
 )
-pkg_exports=(
-  [port]=port
-)
-pkg_exposes=(port)
+pkg_expose=(5000)
 
 do_prepare() {
   npm config set spin=false
