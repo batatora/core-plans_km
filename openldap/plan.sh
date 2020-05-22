@@ -12,10 +12,7 @@ pkg_build_deps=(core/gcc core/make core/groff)
 pkg_bin_dirs=(bin sbin libexec)
 pkg_include_dirs=(include)
 pkg_lib_dirs=(lib)
-pkg_exports=(
-  [port]=port
-)
-pkg_exposes=(port)
+pkg_expose=(10389)
 
 do_build() {
   ./configure --prefix="${pkg_prefix}" \

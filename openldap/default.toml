@@ -1,5 +1,3 @@
-port = 10389
-
 # Base DN for your LDAP server
 suffix = "dc=my-domain,dc=com"
 

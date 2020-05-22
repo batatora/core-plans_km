@@ -10,10 +10,7 @@ pkg_source=https://dl.bintray.com/jfrog/${pkg_name}/org/artifactory/pro/jfrog-${
 pkg_shasum=470f7cafcc94ffd181b75aac70e033f2414d69ca3cd66fc03cf621c9b8a3368e
 pkg_deps=(core/bash core/jre8)
 pkg_build_deps=(core/unzip)
-pkg_exports=(
-  [port]=port
-)
-pkg_exposes=(port)
+pkg_expose=(8081)
 
 do_build() {
   fix_interpreter "bin/artifactory.sh" core/bash bin/bash

@@ -13,10 +13,7 @@ pkg_lib_dirs=(lib)
 pkg_bin_dirs=(bin nginx/sbin luajit/bin)
 pkg_include_dirs=(include)
 pkg_svc_user="root"
-pkg_exports=(
-  [port]=http.listen.port
-)
-pkg_exposes=(port)
+pkg_expose=(80 443)
 
 do_prepare() {
   # The `/usr/bin/env` path is hardcoded, so we'll add a symlink.
