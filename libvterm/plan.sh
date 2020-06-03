@@ -1,24 +1,22 @@
-pkg_name=libtermkey
+pkg_name=libvterm
 pkg_origin=core
-pkg_version="0.20"
+pkg_version="0+bzr681"
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_license=('MIT')
 pkg_source="http://www.leonerd.org.uk/code/$pkg_name/$pkg_name-${pkg_version}.tar.gz"
-pkg_shasum="6c0d87c94ab9915e76ecd313baec08dedf3bd56de83743d9aa923a081935d2f5"
-pkg_deps=(
-  core/glibc
-  core/ncurses
-)
+pkg_shasum="abea46d1b0b831dec2af5d582319635cece63d260f8298d9ccce7c1c2e62a6e8"
+pkg_deps=(core/glibc)
 pkg_build_deps=(
   core/gcc
   core/libtool
   core/make
-  core/pkg-config
+  core/perl
 )
 pkg_lib_dirs=(lib)
 pkg_include_dirs=(include)
-pkg_description="This library allows easy processing of keyboard entry from terminal-based programs."
-pkg_upstream_url="http://www.leonerd.org.uk/code/libtermkey/"
+pkg_bin_dirs=(bin)
+pkg_description="An abstract library implementation of a VT220/xterm/ECMA-48 terminal emulator."
+pkg_upstream_url="http://www.leonerd.org.uk/code/libvterm/"
 
 do_build() {
   make PREFIX="$pkg_prefix"
