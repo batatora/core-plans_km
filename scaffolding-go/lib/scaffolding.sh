@@ -20,7 +20,7 @@ _sanitize_pkg_source() {
 # we have a scaffolding specific callback to allow us to run anything we need
 # to execute before download and build. This callback executes immediately
 # after the scaffolding is loaded.
-scaffolding_load() {
+_scaffolding_begin() {
   return 0
 }
 
