@@ -1,1 +1,1 @@
-{{cfg.superuser.password}}
+{{cfg.initdb_superuser_password}}
