@@ -1,4 +1,4 @@
-# Use Ruby Scaffolding for Your App
+# Use Node Scaffolding for Your App
 
 ## Habitat Quick Setup
 
@@ -6,7 +6,7 @@ To install and setup Habitat on your system for development, follow the instruct
 
 This should leave you with a `hab` program on your system with a generated origin key for signing built packages.
 
-## Create a Plan which uses the Ruby Scaffolding
+## Create a Plan which uses the Node Scaffolding
 
 Now, navigate to the directory at the root of your app and create a `habitat/` directory:
 
@@ -24,7 +24,7 @@ $EDITOR habitat/plan.sh
 pkg_name=MY_APP
 pkg_origin=MY_ORIGIN
 pkg_version=MY_VERSION
-pkg_scaffolding=core/scaffolding-ruby
+pkg_scaffolding=core/scaffolding-node
 ```
 
 You can replace the following:
