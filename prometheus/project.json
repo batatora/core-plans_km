@@ -1,8 +1,0 @@
-{
-  "origin": "core",
-  "plan_path": "prometheus/plan.sh",
-  "github": {
-    "organization": "habitat",
-    "repo": "core-plans"
-  }
-}
