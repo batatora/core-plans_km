@@ -1,6 +1,7 @@
 pkg_origin=core
 pkg_name=pixman
 pkg_description="A low-level software library for pixel manipulation"
+pkg_upstream_url="http://pixman.org/"
 pkg_version=0.34.0
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_license=("MIT")
