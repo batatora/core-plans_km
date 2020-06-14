@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo "Varnish not ready"
