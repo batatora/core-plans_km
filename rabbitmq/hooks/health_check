@@ -1,4 +1,3 @@
 #!/bin/bash
 
-export HOME="{{pkg.svc_var_path}}"
-rabbitmqctl node_health_check
+rabbitmqctl node_health_check > /dev/null

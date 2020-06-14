@@ -39,7 +39,6 @@ do_build() {
     --with-libiconv \
     --with-pcre=system \
     --disable-fam \
-    --disable-gtk-doc \
-    --enable-shared
+    --disable-gtk-doc
   make
 }
