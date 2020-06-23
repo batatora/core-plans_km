@@ -982,7 +982,6 @@ _tar_pipe_app_cp_to() {
       --exclude-vcs \
       --exclude='habitat' \
       --exclude='vendor/bundle' \
-      --exclude='results' \
       --files-from=- \
       -f - \
   | "$tar" -x \
