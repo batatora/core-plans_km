@@ -1,4 +1,3 @@
-
 port = '5432'
 
 max_connections = 100
@@ -15,9 +14,9 @@ password = 'admin'
 name = 'replication'
 password = 'replication'
 lag_health_threshold = 1048576
-enable = false
-archive_path = "{{pkg.svc_path}}/archive"
 
+[wal-e]
+enable = false
 [wal-e.aws]
 prefix = ''
 access_key_id = ''

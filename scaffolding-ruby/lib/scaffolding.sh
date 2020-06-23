@@ -4,6 +4,15 @@ scaffolding_load() {
   _setup_funcs
   _setup_vars
 
+# /src is the default value for $SRC_PATH
+# if it is set to something else
+# this scaffolding will not work
+if [ "$SRC_PATH" != "/src" ]
+then
+    e="Please do not use pkg_source in your plan when using the ruby scaffolding."
+    exit_with "$e" 10
+fi
+
   pushd "$SRC_PATH" > /dev/null
   _detect_gemfile
   _detect_app_type
@@ -144,7 +153,7 @@ if ! $pkg_prefix/libexec/is_db_connected; then
   >&2 echo " * db.host      - The database hostname or IP address (Current: {{#if cfg.db.host}}{{cfg.db.host}}{{else}}<unset>{{/if}})"
   >&2 echo " * db.port      - The database listen port number (Current: {{#if cfg.db.port}}{{cfg.db.port}}{{else}}5432{{/if}})"
 {{~/unless}}
-  >&2 echo " * db.adapter   - The database adapter (Current: {{#if cfg.db.adapter}}{{cfg.db.adapter}}{{else}}postgres{{/if}})"
+  >&2 echo " * db.adapter   - The database adapter (Current: {{#if cfg.db.adapter}}{{cfg.db.adapter}}{{else}}postgresql{{/if}})"
   >&2 echo " * db.user      - The database username (Current: {{#if cfg.db.user}}{{cfg.db.user}}{{else}}<unset>{{/if}})"
   >&2 echo " * db.password  - The database password (Current: {{#if cfg.db.password}}<set>{{else}}<unset>{{/if}})"
   >&2 echo " * db.name      - The database name (Current: {{#if cfg.db.name}}{{cfg.db.name}}{{else}}<unset>{{/if}})"
@@ -262,7 +271,7 @@ scaffolding_setup_app_config() {
 scaffolding_setup_database_config() {
   if [[ "${_uses_pg:-}" == "true" ]]; then
     local db t
-    db="{{#if cfg.db.adapter}}{{cfg.db.adapter}}{{else}}postgres{{/if}}://{{cfg.db.user}}:{{cfg.db.password}}"
+    db="{{#if cfg.db.adapter}}{{cfg.db.adapter}}{{else}}postgresql{{/if}}://{{cfg.db.user}}:{{cfg.db.password}}"
     db="${db}@{{#if bind.database}}{{bind.database.first.sys.ip}}{{else}}{{#if cfg.db.host}}{{cfg.db.host}}{{else}}db.host.not.set{{/if}}{{/if}}"
     db="${db}:{{#if bind.database}}{{bind.database.first.cfg.port}}{{else}}{{#if cfg.db.port}}{{cfg.db.port}}{{else}}5432{{/if}}{{/if}}"
     db="${db}/{{cfg.db.name}}"
@@ -278,7 +287,7 @@ scaffolding_setup_database_config() {
         echo "[db]"
       } >> "$t"
       if _default_toml_has_no db.adapter; then
-        echo "adapter = \"postgres\"" >> "$t"
+        echo "adapter = \"postgresql\"" >> "$t"
       fi
       if _default_toml_has_no db.name; then
         echo "name = \"${pkg_name}_production\"" >> "$t"
@@ -982,6 +991,7 @@ _tar_pipe_app_cp_to() {
       --exclude-vcs \
       --exclude='habitat' \
       --exclude='vendor/bundle' \
+      --exclude='results' \
       --files-from=- \
       -f - \
   | "$tar" -x \
