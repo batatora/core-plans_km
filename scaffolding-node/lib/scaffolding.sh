@@ -18,8 +18,6 @@ scaffolding_load() {
 
 do_default_prepare() {
   export NODE_ENV=production
-  # The install prefix path for the app
-  scaffolding_app_prefix="$pkg_prefix/$app_prefix"
   build_line "Setting NODE_ENV=$NODE_ENV"
 }
 
@@ -232,7 +230,7 @@ _setup_vars() {
   # `$scaffolding_node_pkg` is empty by default
   : "${scaffolding_node_pkg:=}"
   # The install prefix path for the app
-  app_prefix="app"
+  scaffolding_app_prefix="$pkg_prefix/app"
   #
   : "${scaffolding_app_port:=8000}"
   # If `${scaffolding_env[@]` is not yet set, setup the hash
@@ -392,7 +390,7 @@ _update_bin_dirs() {
   pkg_bin_dirs=(
     ${pkg_bin_dir[@]}
     bin
-    $app_prefix/node_modules/.bin
+    $(basename "$scaffolding_app_prefix")/node_modules/.bin
   )
 }
 
