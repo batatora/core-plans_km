@@ -4,13 +4,6 @@ scaffolding_load() {
   _setup_funcs
   _setup_vars
 
-# this scaffolding will not work if $pkg_source is set
-if [[ -n "${pkg_source:-}" ]]
-then
-    e="Please do not use pkg_source in your plan when using the ruby scaffolding."
-    exit_with "$e" 10
-fi
-
   pushd "$SRC_PATH" > /dev/null
   _detect_gemfile
   _detect_app_type
@@ -26,8 +19,6 @@ fi
 
 do_default_prepare() {
   local gem_dir gem_path
-  # The install prefix path for the app
-  scaffolding_app_prefix="$pkg_prefix/$app_prefix"
 
   # Determine Ruby engine, ABI version, and Gem path by running `ruby` itself.
   eval "$(ruby -rubygems -rrbconfig - <<-'EOF'
@@ -132,31 +123,16 @@ _RAILS_
 # Confirm an initial database connection
 if ! $pkg_prefix/libexec/is_db_connected; then
   >&2 echo ""
-  >&2 echo "A database connection is required for this app to properly boot."
+  >&2 echo "A database connection is require for this app to properly boot."
   >&2 echo "Is the database not running or are the database connection"
   >&2 echo "credentials incorrect?"
   >&2 echo ""
-{{~#if bind.database}}
-  >&2 echo "This app started with a database bind and will discovery the"
-  >&2 echo "hostname and port number in the Habitat ring."
+  >&2 echo "There are 3 config setting for this package which must be set"
+  >&2 echo "correctly:"
   >&2 echo ""
-  >&2 echo "There are 3 remaining config settings which must be set correctly:"
-{{else}}
-  >&2 echo "This app started without a database bind meaning that the"
-  >&2 echo "database is assumed to be running outside of a Habitat ring."
-  >&2 echo "Therefore, you must provide all the database connection values."
-  >&2 echo ""
-  >&2 echo "There are 5 config settings which must be set correctly:"
-{{~/if}}
-  >&2 echo ""
-{{~#unless bind.database}}
-  >&2 echo " * db.host      - The database hostname or IP address (Current: {{#if cfg.db.host}}{{cfg.db.host}}{{else}}<unset>{{/if}})"
-  >&2 echo " * db.port      - The database listen port number (Current: {{#if cfg.db.port}}{{cfg.db.port}}{{else}}5432{{/if}})"
-{{~/unless}}
-  >&2 echo " * db.adapter   - The database adapter (Current: {{#if cfg.db.adapter}}{{cfg.db.adapter}}{{else}}postgresql{{/if}})"
-  >&2 echo " * db.user      - The database username (Current: {{#if cfg.db.user}}{{cfg.db.user}}{{else}}<unset>{{/if}})"
-  >&2 echo " * db.password  - The database password (Current: {{#if cfg.db.password}}<set>{{else}}<unset>{{/if}})"
-  >&2 echo " * db.name      - The database name (Current: {{#if cfg.db.name}}{{cfg.db.name}}{{else}}<unset>{{/if}})"
+  >&2 echo " * db.user      - The database username"
+  >&2 echo " * db.password  - The database password"
+  >&2 echo " * db.name      - The database name"
   >&2 echo ""
   >&2 echo "Aborting..."
   exit 15
@@ -196,24 +172,18 @@ scaffolding_bundle_install() {
 
   build_line "Installing dependencies using $(_bundle --version)"
   start_sec="$SECONDS"
-
-  {
-    _bundle_install \
-      "$CACHE_PATH/vendor/bundle" \
-      --retry 5
-  } || {
-      _restore_bundle_config
-      e="bundler returned an error"
-      exit_with "$e" 10
-  }
-
+  _bundle_install \
+    "$CACHE_PATH/vendor/bundle" \
+    --retry 5
   elapsed=$((SECONDS - start_sec))
   elapsed=$(echo $elapsed | awk '{printf "%dm%ds", $1/60, $1%60}')
   build_line "Bundle completed ($elapsed)"
 
   # If we preserved the original Bundler config, move it back into place
   if [[ -f .bundle/config.prehab ]]; then
-    _restore_bundle_config
+    rm -f .bundle/config
+    mv .bundle/config.prehab .bundle/config
+    rm -f .bundle/config.prehab
   fi
   # If not `.bundle/` directory existed before, then clear it out now
   if [[ -z "${dot_bundle:-}" ]]; then
@@ -277,24 +247,22 @@ scaffolding_setup_app_config() {
 scaffolding_setup_database_config() {
   if [[ "${_uses_pg:-}" == "true" ]]; then
     local db t
-    db="{{#if cfg.db.adapter}}{{cfg.db.adapter}}{{else}}postgresql{{/if}}://{{cfg.db.user}}:{{cfg.db.password}}"
-    db="${db}@{{#if bind.database}}{{bind.database.first.sys.ip}}{{else}}{{#if cfg.db.host}}{{cfg.db.host}}{{else}}db.host.not.set{{/if}}{{/if}}"
-    db="${db}:{{#if bind.database}}{{bind.database.first.cfg.port}}{{else}}{{#if cfg.db.port}}{{cfg.db.port}}{{else}}5432{{/if}}{{/if}}"
+    # TODO fin: handle leader selection vs. choosing the first in a service
+    # group
+    db="postgres://{{cfg.db.user}}:{{cfg.db.password}}"
+    db="${db}@{{bind.database.first.sys.ip}}:{{bind.database.first.cfg.port}}"
     db="${db}/{{cfg.db.name}}"
     _set_if_unset scaffolding_env DATABASE_URL "$db"
 
-    # Add an optional binding called `database` which will be the PostgreSQL
+    # Add a require binding called `database` which will be the PostgreSQL
     # database
-    _set_if_unset pkg_binds_optional database "port"
+    _set_if_unset pkg_binds database "port"
 
     t="$CACHE_PATH/default.scaffolding.toml"
     if _default_toml_has_no db; then
       { echo ""
         echo "[db]"
       } >> "$t"
-      if _default_toml_has_no db.adapter; then
-        echo "adapter = \"postgresql\"" >> "$t"
-      fi
       if _default_toml_has_no db.name; then
         echo "name = \"${pkg_name}_production\"" >> "$t"
       fi
@@ -449,7 +417,7 @@ _setup_vars() {
   _bundler_version="$("$(pkg_path_for bundler)/bin/bundle" --version \
     | awk '{print $NF}')"
   # The install prefix path for the app
-  app_prefix="app"
+  scaffolding_app_prefix="$pkg_prefix/app"
   #
   : "${scaffolding_app_port:=8000}"
   # If `${scaffolding_env[@]` is not yet set, setup the hash
@@ -622,13 +590,13 @@ _update_bin_dirs() {
   pkg_bin_dirs=(
     ${pkg_bin_dir[@]}
     bin
-    $app_prefix/binstubs
+    $(basename "$scaffolding_app_prefix")/binstubs
   )
 }
 
 _update_svc_run() {
   if [[ -z "$pkg_svc_run" ]]; then
-    pkg_svc_run="${pkg_name}-web"
+    pkg_svc_run="$pkg_prefix/bin/${pkg_name}-web"
     build_line "Setting pkg_svc_run='$pkg_svc_run'"
   fi
 }
@@ -997,7 +965,6 @@ _tar_pipe_app_cp_to() {
       --exclude-vcs \
       --exclude='habitat' \
       --exclude='vendor/bundle' \
-      --exclude='results' \
       --files-from=- \
       -f - \
   | "$tar" -x \
@@ -1021,10 +988,4 @@ unset RUBYOPT GEMRC
 exec $(pkg_path_for $_ruby_pkg)/bin/ruby ${bin}.real \$@
 EOF
   chmod -v 755 "$bin"
-}
-
-_restore_bundle_config() {
-  rm -f .bundle/config
-  mv .bundle/config.prehab .bundle/config
-  rm -f .bundle/config.prehab
 }
