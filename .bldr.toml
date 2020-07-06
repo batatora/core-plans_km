@@ -318,8 +318,6 @@ plan_path = "kibana"
 plan_path = "kmod"
 [krb5]
 plan_path = "krb5"
-[kubernetes]
-plan_path = "kubernetes"
 [lcms2]
 plan_path = "lcms2"
 [less]
