@@ -270,10 +270,7 @@ _detect_package_json() {
     exit_with "Failed to parse package.json as JSON." 6
   fi
 
-  # Check if both a package.lock and a yarn.lock file are present
-  if [[ -f package-lock.json && -f yarn.lock ]]; then
-    exit_with "Both a package-lock.json and yarn.lock are present. We only can only suppport one .lock file." 6
-  fi
+  # TODO fin: do we check for any lockfiles here?
 }
 
 _detect_pkg_manager() {
@@ -294,9 +291,6 @@ _detect_pkg_manager() {
         exit_with "$e" 9
         ;;
     esac
-  elif [[ -f package-lock.json ]]; then
-    _pkg_manager=npm
-    build_line "Detected package-lock.json in root directory, using '$_pkg_manager'"
   elif [[ -f yarn.lock ]]; then
     _pkg_manager=yarn
     build_line "Detected yarn.lock in root directory, using '$_pkg_manager'"
