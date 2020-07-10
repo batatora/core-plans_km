@@ -278,8 +278,6 @@ plan_path = "groff"
 plan_path = "grub"
 [gsl]
 plan_path = "gsl"
-[gtk2]
-plan_path = "gtk2"
 [guile]
 plan_path = "guile"
 [gzip]
@@ -761,6 +759,8 @@ plan_path = "sensu"
 plan_path = "serf"
 [shadow]
 plan_path = "shadow"
+[shared-mime-info]
+plan_path = "shared-mime-info"
 [shield]
 plan_path = "shield"
 [shield-agent]
