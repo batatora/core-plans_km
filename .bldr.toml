@@ -575,13 +575,8 @@ plan_path = "nginx"
 plan_path = "ninja"
 [node]
 plan_path = "node"
-[node6]
-plan_path = "node6"
-paths = [
-  "node/*",
-]
-[node9]
-plan_path = "node9"
+[node8]
+plan_path = "node8"
 paths = [
   "node/*",
 ]
