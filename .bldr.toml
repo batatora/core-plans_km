@@ -14,8 +14,6 @@ plan_path = "apr-util"
 plan_path = "artifactory-pro"
 [aspcud]
 plan_path = "aspcud"
-[atk]
-plan_path = "atk"
 [attr]
 plan_path = "attr"
 [autoconf]
