@@ -14,6 +14,8 @@ plan_path = "apr-util"
 plan_path = "artifactory-pro"
 [aspcud]
 plan_path = "aspcud"
+[atk]
+plan_path = "atk"
 [attr]
 plan_path = "attr"
 [autoconf]
@@ -759,6 +761,8 @@ plan_path = "sensu"
 plan_path = "serf"
 [shadow]
 plan_path = "shadow"
+[shared-mime-info]
+plan_path = "shared-mime-info"
 [shield]
 plan_path = "shield"
 [shield-agent]
