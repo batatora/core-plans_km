@@ -14,6 +14,8 @@ plan_path = "apr-util"
 plan_path = "artifactory-pro"
 [aspcud]
 plan_path = "aspcud"
+[atk]
+plan_path = "atk"
 [attr]
 plan_path = "attr"
 [autoconf]
@@ -63,6 +65,8 @@ plan_path = "bzip2-musl"
 paths = [
   "bzip2/*",
 ]
+[c-ares]
+plan_path = "c-ares"
 [cacerts]
 plan_path = "cacerts"
 [caddy]
@@ -218,6 +222,8 @@ paths = [
 plan_path = "gdb"
 [gdbm]
 plan_path = "gdbm"
+[gdk-pixbuf]
+plan_path = "gdk-pixbuf"
 [gecode]
 plan_path = "gecode"
 [geoip]
@@ -575,8 +581,13 @@ plan_path = "nginx"
 plan_path = "ninja"
 [node]
 plan_path = "node"
-[node8]
-plan_path = "node8"
+[node6]
+plan_path = "node6"
+paths = [
+  "node/*",
+]
+[node9]
+plan_path = "node9"
 paths = [
   "node/*",
 ]
@@ -752,6 +763,8 @@ plan_path = "sensu"
 plan_path = "serf"
 [shadow]
 plan_path = "shadow"
+[shared-mime-info]
+plan_path = "shared-mime-info"
 [shield]
 plan_path = "shield"
 [shield-agent]

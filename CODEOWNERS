@@ -103,4 +103,9 @@ mg @fnichol
 # inclusion here is voluntary.
 # This list shall be alphabetical, for sanity purposes.
 
+acbuild @rsertelon
+jdk7 @rsertelon
+jdk8 @rsertelon
+jre7 @rsertelon
+jre8 @rsertelon
 rabbitmqadmin @predominant
