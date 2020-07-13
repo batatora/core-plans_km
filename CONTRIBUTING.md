@@ -21,7 +21,6 @@ In order for a package to be accepted as a core package, the following requireme
 - [Linting your plans](#linting-your-plans)
 - [Pre-commit hooks](#pre-commit-hooks)
 - [Signing your commits](#signing-your-commits)
-- [Separate changes, separate PRs](#separate-prs)
 - [Pull request review and merge automation](#pull-request-review-and-merge-automation)
 - [Add yourself as a CODEOWNER](#add-yourself-as-a-codeowner)
 - [Add yourself to core plans maintainers](#add-yourself-to-core-plans-maintainers)
@@ -95,9 +94,9 @@ You can read more about [callbacks](https://www.habitat.sh/docs/reference/#refer
 
 #### Don't's
 
-- You should never call `exit` within a build phase. You should instead return an exit code such as `return 1` for failure, and `return 0` for success.  
+- You should never call `exit` within a build phase. You should instead return an exit code such as `return 1` for failure, and `return 0` for success.
 - If you clone a repo from git, you must override `do_verify()` to `return 0`.
-- Never use `pkg_source` unless you are downloading something as a third party.  
+- Never use `pkg_source` unless you are downloading something as a third party.
 - You should never shell out to `hab` from within a callback. If you think you want to, you should use a [utility function](https://www.habitat.sh/docs/reference/#utility-functions) instead.
 - You should not call any function or helper that begin with an underscore, for example `_dont_call_this_function()`. Those are internal only functions that are not supported for external use and will break your plan if you call them.
 - Don't run any code or run anything outside of a build phase or bash function.
@@ -116,7 +115,7 @@ The supervisor dynamically invokes hooks at run-time, triggered by an applicatio
 - Attempting to execute commands as a `root` user or trying to do `sudo hab install` are not good practice.
 - Don't edit any of the Supervisor rendered templates.
   - You can only write to: `/var/`, `/static/`, `/data/` directories. You should only access these with your `runtime configuration setting` variable.
-  - No one should ever edit anything in `/hab/` directly.  
+  - No one should ever edit anything in `/hab/` directly.
   - No one should write to anything in `/hab/` directly.
 
 ### README
@@ -217,19 +216,6 @@ Git makes it easy to add this line to your commit messages.
 
 1. Make sure the `user.name` and `user.email` are set in your git configs.
 2. Use `-s` or `--signoff` to add the Signed-off-by line to the end of the commit message.
-
-## Separate Changes, Separate Pull Requests
-
-Each package being changed should be separated into its own pull request. E.g. If you are making a change to `core/openssl` and your change requires another change in `core/curl` to be merged, each of these changes should be submitted as two different PRs with a note about the order in which each thing should be submitted. 
-
-Each of these change PRs submitted should include a bracketed packagename as the prefix to the change information. For example in the previously defined situation the PR titles above might titled like so:
-
-  - `[curl] Making a change here`
-  - `[openssl] Also making a change here`
-
-If you have opened a single PR that changes multiple plans, it is assumed you are making a substantial change to core plans. Substantial change PRs submitted without an RFC will be closed and you will be directed to open an RFC. If this was not your intention please open separate PRs per package change.
-
-
 
 ## Pull Request Review and Merge Automation
 
