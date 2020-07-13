@@ -16,6 +16,8 @@ plan_path = "artifactory-pro"
 plan_path = "aspcud"
 [atk]
 plan_path = "atk"
+[at-spi2-atk]
+plan_path = "at-spi2-atk"
 [attr]
 plan_path = "attr"
 [autoconf]
@@ -709,8 +711,6 @@ plan_path = "rabbitmq"
 plan_path = "rabbitmqadmin"
 [raml2html]
 plan_path = "raml2html"
-[randrproto]
-randrproto = "randrproto"
 [re2c]
 plan_path = "re2c"
 [readline]
