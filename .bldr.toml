@@ -14,6 +14,8 @@ plan_path = "apr-util"
 plan_path = "artifactory-pro"
 [aspcud]
 plan_path = "aspcud"
+[atk]
+plan_path = "atk"
 [attr]
 plan_path = "attr"
 [autoconf]
@@ -220,6 +222,8 @@ paths = [
 plan_path = "gdb"
 [gdbm]
 plan_path = "gdbm"
+[gdk-pixbuf]
+plan_path = "gdk-pixbuf"
 [gecode]
 plan_path = "gecode"
 [geoip]
@@ -278,6 +282,8 @@ plan_path = "groff"
 plan_path = "grub"
 [gsl]
 plan_path = "gsl"
+[gtk2]
+plan_path = "gtk2"
 [guile]
 plan_path = "guile"
 [gzip]
@@ -539,6 +545,11 @@ plan_path = "mention-bot"
 plan_path = "mercurial"
 [mg]
 plan_path = "mg"
+[monit]
+plan_path = "monit"
+paths = [
+  "monit/*",
+]
 [mongo-tools]
 plan_path = "mongo-tools"
 [mongodb]
@@ -759,6 +770,8 @@ plan_path = "sensu"
 plan_path = "serf"
 [shadow]
 plan_path = "shadow"
+[shared-mime-info]
+plan_path = "shared-mime-info"
 [shield]
 plan_path = "shield"
 [shield-agent]
