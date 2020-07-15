@@ -14,8 +14,12 @@ plan_path = "apr-util"
 plan_path = "artifactory-pro"
 [aspcud]
 plan_path = "aspcud"
+[at-spi2-core]
+plan_path = "at-spi2-core"
 [atk]
 plan_path = "atk"
+[at-spi2-atk]
+plan_path = "at-spi2-atk"
 [attr]
 plan_path = "attr"
 [autoconf]
@@ -326,6 +330,8 @@ plan_path = "jbigkit"
 plan_path = "jdk7"
 [jdk8]
 plan_path = "jdk8"
+[jdk9]
+plan_path = "jdk9"
 [jemalloc]
 plan_path = "jemalloc"
 [jenkins]
@@ -344,6 +350,8 @@ plan_path = "jq-static"
 plan_path = "jre7"
 [jre8]
 plan_path = "jre8"
+[jre9]
+plan_path = "jre9"
 [jruby]
 plan_path = "jruby"
 [jruby1]
@@ -455,8 +463,6 @@ plan_path = "libtool"
 plan_path = "libunistring"
 [libunwind]
 plan_path = "libunwind"
-[libuv]
-plan_path = "libuv"
 [libvterm]
 plan_path = "libvterm"
 [libwebp]
@@ -477,6 +483,8 @@ plan_path = "libxi"
 plan_path = "libxml2"
 [libxmu]
 plan_path = "libxmu"
+[libxrandr]
+plan_path = "libxrandr"
 [libxrender]
 plan_path = "libxrender"
 [libxslt]
@@ -549,6 +557,11 @@ plan_path = "mention-bot"
 plan_path = "mercurial"
 [mg]
 plan_path = "mg"
+[monit]
+plan_path = "monit"
+paths = [
+  "monit/*",
+]
 [mongo-tools]
 plan_path = "mongo-tools"
 [mongodb]
@@ -713,6 +726,8 @@ plan_path = "rabbitmq"
 plan_path = "rabbitmqadmin"
 [raml2html]
 plan_path = "raml2html"
+[randrproto]
+randrproto = "randrproto"
 [re2c]
 plan_path = "re2c"
 [readline]
