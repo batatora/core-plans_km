@@ -114,11 +114,6 @@ jdk7 @rsertelon
 jdk8 @rsertelon
 jre7 @rsertelon
 jre8 @rsertelon
-monit @rsertelon
 pango @rsertelon
 rabbitmqadmin @predominant
 shared-mime-info @rsertelon
-wrk @afiune
-protobuf-cpp @afiune
-go @afiune
-dep @afiune
