@@ -14,12 +14,6 @@ plan_path = "apr-util"
 plan_path = "artifactory-pro"
 [aspcud]
 plan_path = "aspcud"
-[at-spi2-core]
-plan_path = "at-spi2-core"
-[atk]
-plan_path = "atk"
-[at-spi2-atk]
-plan_path = "at-spi2-atk"
 [attr]
 plan_path = "attr"
 [autoconf]
@@ -69,8 +63,6 @@ plan_path = "bzip2-musl"
 paths = [
   "bzip2/*",
 ]
-[c-ares]
-plan_path = "c-ares"
 [cacerts]
 plan_path = "cacerts"
 [caddy]
@@ -95,8 +87,6 @@ plan_path = "clingo"
 plan_path = "cmake"
 [composer]
 plan_path = "composer"
-[concourse]
-plan_path = "concourse"
 [consul]
 plan_path = "consul"
 [coreutils]
@@ -228,8 +218,6 @@ paths = [
 plan_path = "gdb"
 [gdbm]
 plan_path = "gdbm"
-[gdk-pixbuf]
-plan_path = "gdk-pixbuf"
 [gecode]
 plan_path = "gecode"
 [geoip]
@@ -288,8 +276,6 @@ plan_path = "groff"
 plan_path = "grub"
 [gsl]
 plan_path = "gsl"
-[gtk2]
-plan_path = "gtk2"
 [guile]
 plan_path = "guile"
 [gzip]
@@ -330,8 +316,6 @@ plan_path = "jbigkit"
 plan_path = "jdk7"
 [jdk8]
 plan_path = "jdk8"
-[jdk9]
-plan_path = "jdk9"
 [jemalloc]
 plan_path = "jemalloc"
 [jenkins]
@@ -350,8 +334,6 @@ plan_path = "jq-static"
 plan_path = "jre7"
 [jre8]
 plan_path = "jre8"
-[jre9]
-plan_path = "jre9"
 [jruby]
 plan_path = "jruby"
 [jruby1]
@@ -463,8 +445,6 @@ plan_path = "libtool"
 plan_path = "libunistring"
 [libunwind]
 plan_path = "libunwind"
-[libuv]
-plan_path = "libuv"
 [libvterm]
 plan_path = "libvterm"
 [libwebp]
@@ -485,8 +465,6 @@ plan_path = "libxi"
 plan_path = "libxml2"
 [libxmu]
 plan_path = "libxmu"
-[libxrandr]
-plan_path = "libxrandr"
 [libxrender]
 plan_path = "libxrender"
 [libxslt]
@@ -559,17 +537,10 @@ plan_path = "mention-bot"
 plan_path = "mercurial"
 [mg]
 plan_path = "mg"
-[monit]
-plan_path = "monit"
-paths = [
-  "monit/*",
-]
 [mongo-tools]
 plan_path = "mongo-tools"
 [mongodb]
 plan_path = "mongodb"
-[mosquitto]
-plan_path = "mosquitto"
 [mpfr]
 plan_path = "mpfr"
 [mssql]
@@ -604,13 +575,8 @@ plan_path = "nginx"
 plan_path = "ninja"
 [node]
 plan_path = "node"
-[node6]
-plan_path = "node6"
-paths = [
-  "node/*",
-]
-[node9]
-plan_path = "node9"
+[node8]
+plan_path = "node8"
 paths = [
   "node/*",
 ]
@@ -730,8 +696,6 @@ plan_path = "rabbitmq"
 plan_path = "rabbitmqadmin"
 [raml2html]
 plan_path = "raml2html"
-[randrproto]
-randrproto = "randrproto"
 [re2c]
 plan_path = "re2c"
 [readline]
@@ -788,8 +752,6 @@ plan_path = "sensu"
 plan_path = "serf"
 [shadow]
 plan_path = "shadow"
-[shared-mime-info]
-plan_path = "shared-mime-info"
 [shield]
 plan_path = "shield"
 [shield-agent]
