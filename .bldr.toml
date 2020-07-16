@@ -205,8 +205,6 @@ plan_path = "fixesproto"
 plan_path = "flatbuffers"
 [flex]
 plan_path = "flex"
-[fluentd]
-plan_path = "fluentd"
 [fontconfig]
 plan_path = "fontconfig"
 [foulkon]
@@ -332,6 +330,8 @@ plan_path = "jbigkit"
 plan_path = "jdk7"
 [jdk8]
 plan_path = "jdk8"
+[jdk9]
+plan_path = "jdk9"
 [jemalloc]
 plan_path = "jemalloc"
 [jenkins]
@@ -350,6 +350,8 @@ plan_path = "jq-static"
 plan_path = "jre7"
 [jre8]
 plan_path = "jre8"
+[jre9]
+plan_path = "jre9"
 [jruby]
 plan_path = "jruby"
 [jruby1]
@@ -461,6 +463,8 @@ plan_path = "libtool"
 plan_path = "libunistring"
 [libunwind]
 plan_path = "libunwind"
+[libuv]
+plan_path = "libuv"
 [libvterm]
 plan_path = "libvterm"
 [libwebp]
@@ -564,6 +568,8 @@ paths = [
 plan_path = "mongo-tools"
 [mongodb]
 plan_path = "mongodb"
+[mosquitto]
+plan_path = "mosquitto"
 [mpfr]
 plan_path = "mpfr"
 [mssql]
