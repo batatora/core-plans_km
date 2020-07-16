@@ -19,23 +19,21 @@ pkg_deps=(
   core/glib
   core/glibc
   core/libffi
-  core/libice
   core/libiconv
   core/libpng
-  core/libsm
   core/libxau
   core/libxcb
   core/libxdmcp
   core/libxext
-  core/lzo
   core/pcre
   core/pixman
   core/xlib
   core/zlib
 )
 pkg_build_deps=(
+  core/autoconf
+  core/automake
   core/diffutils
-  core/file
   core/gcc
   core/make
   core/pkg-config
@@ -43,19 +41,12 @@ pkg_build_deps=(
   core/xproto
 )
 pkg_bin_dirs=(bin)
-pkg_include_dirs=(include)
+pkg_include_dirs=(include/cairo)
 pkg_lib_dirs=(
   lib
   lib/cairo
 )
 pkg_pconfig_dirs=(lib/pkgconfig)
-
-do_prepare() {
-  if [[ ! -r /usr/bin/file ]]; then
-    ln -sv "$(pkg_path_for file)/bin/file" /usr/bin/file
-    _clean_file=true
-  fi
-}
 
 do_build() {
   CFLAGS="-Os ${CFLAGS}"
@@ -67,10 +58,4 @@ do_build() {
 
 do_check() {
   make test
-}
-
-do_end() {
-  if [[ -n "$_clean_file" ]]; then
-    rm -fv /usr/bin/file
-  fi
 }

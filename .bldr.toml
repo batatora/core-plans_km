@@ -205,6 +205,8 @@ plan_path = "fixesproto"
 plan_path = "flatbuffers"
 [flex]
 plan_path = "flex"
+[fluentd]
+plan_path = "fluentd"
 [fontconfig]
 plan_path = "fontconfig"
 [foulkon]
@@ -330,8 +332,6 @@ plan_path = "jbigkit"
 plan_path = "jdk7"
 [jdk8]
 plan_path = "jdk8"
-[jdk9]
-plan_path = "jdk9"
 [jemalloc]
 plan_path = "jemalloc"
 [jenkins]
@@ -350,8 +350,6 @@ plan_path = "jq-static"
 plan_path = "jre7"
 [jre8]
 plan_path = "jre8"
-[jre9]
-plan_path = "jre9"
 [jruby]
 plan_path = "jruby"
 [jruby1]
@@ -368,31 +366,6 @@ plan_path = "kmod"
 plan_path = "krb5"
 [kubernetes]
 plan_path = "kubernetes"
-[kubernetes-apiserver]
-plan_path = "kubernetes-apiserver"
-paths = [
-  "kubernetes/*",
-]
-[kubernetes-controller-manager]
-plan_path = "kubernetes-controller-manager"
-paths = [
-  "kubernetes/*",
-]
-[kubernetes-kubelet]
-plan_path = "kubernetes-kubelet"
-paths = [
-  "kubernetes/*",
-]
-[kubernetes-proxy]
-plan_path = "kubernetes-proxy"
-paths = [
-  "kubernetes/*",
-]
-[kubernetes-scheduler]
-plan_path = "kubernetes-scheduler"
-paths = [
-  "kubernetes/*",
-]
 [lcms2]
 plan_path = "lcms2"
 [less]
@@ -488,8 +461,6 @@ plan_path = "libtool"
 plan_path = "libunistring"
 [libunwind]
 plan_path = "libunwind"
-[libuv]
-plan_path = "libuv"
 [libvterm]
 plan_path = "libvterm"
 [libwebp]
@@ -593,8 +564,6 @@ paths = [
 plan_path = "mongo-tools"
 [mongodb]
 plan_path = "mongodb"
-[mosquitto]
-plan_path = "mosquitto"
 [mpfr]
 plan_path = "mpfr"
 [mssql]
