@@ -125,6 +125,8 @@ paths = [
 ]
 [cyrus-sasl]
 plan_path = "cyrus-sasl"
+[damageproto]
+plan_path = "damageproto"
 [db]
 plan_path = "db"
 [dbus]
@@ -463,8 +465,6 @@ plan_path = "libtool"
 plan_path = "libunistring"
 [libunwind]
 plan_path = "libunwind"
-[libuv]
-plan_path = "libuv"
 [libvterm]
 plan_path = "libvterm"
 [libwebp]
