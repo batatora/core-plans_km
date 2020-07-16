@@ -15,7 +15,6 @@ pkg_upstream_url="https://developer.gnome.org/glib/"
 pkg_shasum="82ee94bf4c01459b6b00cb9db0545c2237921e3060c0b74cff13fbc020cfd999"
 pkg_deps=(
   core/coreutils
-  core/elfutils
   core/glibc
   core/libffi
   core/libiconv
@@ -24,14 +23,9 @@ pkg_deps=(
   core/zlib
 )
 pkg_build_deps=(
-  core/dbus
-  core/diffutils
-  core/file
   core/gcc
   core/gettext
-  core/libxslt
   core/make
-  core/perl
   core/pkg-config
   core/python
 )
@@ -41,28 +35,17 @@ pkg_include_dirs=(include)
 pkg_pconfig_dirs=(lib/pkgconfig)
 pkg_interpreters=(core/coreutils)
 
-do_prepare() {
-  if [[ ! -r /usr/bin/file ]]; then
-    ln -sv "$(pkg_path_for file)/bin/file" /usr/bin/file
-    _clean_file=true
-  fi
-}
-
 do_build() {
   ./configure \
     --prefix="$pkg_prefix" \
     --with-libiconv \
+    --with-pcre=system \
+    --disable-fam \
     --disable-gtk-doc \
-    --disable-fam
+    --enable-shared
   make
 }
 
 do_after() {
   fix_interpreter "$pkg_prefix/bin/*" core/coreutils bin/env
-}
-
-do_end() {
-  if [[ -n "$_clean_file" ]]; then
-    rm -fv /usr/bin/file
-  fi
 }
