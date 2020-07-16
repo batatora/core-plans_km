@@ -764,8 +764,6 @@ plan_path = "ruby"
 plan_path = "runit"
 [rust]
 plan_path = "rust"
-[rust-nightly]
-plan_path = "rust-nightly"
 [sassc]
 plan_path = "sassc"
 [scaffolding-base]
