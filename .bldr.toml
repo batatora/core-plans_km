@@ -211,6 +211,8 @@ plan_path = "fixesproto"
 plan_path = "flatbuffers"
 [flex]
 plan_path = "flex"
+[fluentd]
+plan_path = "fluentd"
 [fontconfig]
 plan_path = "fontconfig"
 [foulkon]
@@ -801,6 +803,8 @@ randrproto = "randrproto"
 plan_path = "re2c"
 [readline]
 plan_path = "readline"
+[rebar]
+plan_path = "rebar"
 [rebar3]
 plan_path = "rebar3"
 [recordproto]
@@ -815,6 +819,8 @@ plan_path = "renderproto"
 plan_path = "repo"
 [rethinkdb]
 plan_path = "rethinkdb"
+[ripgrep]
+plan_path = "ripgrep"
 [rngd]
 plan_path = "rngd"
 [rpm]
