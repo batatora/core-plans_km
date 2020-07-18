@@ -444,8 +444,6 @@ plan_path = "libcxx"
 plan_path = "libdrm"
 [libedit]
 plan_path = "libedit"
-[libepoxy]
-plan_path = "libepoxy"
 [liberation-fonts-ttf]
 plan_path = "liberation-fonts-ttf"
 [libev]
@@ -612,6 +610,8 @@ plan_path = "memcached"
 plan_path = "mention-bot"
 [mercurial]
 plan_path = "mercurial"
+[mesa]
+plan_path = "mesa"
 [mg]
 plan_path = "mg"
 [monit]
