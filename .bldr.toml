@@ -610,6 +610,8 @@ plan_path = "memcached"
 plan_path = "mention-bot"
 [mercurial]
 plan_path = "mercurial"
+[meson]
+plan_path = "meson"
 [mg]
 plan_path = "mg"
 [monit]
@@ -655,8 +657,6 @@ plan_path = "nghttp2"
 plan_path = "nginx"
 [ninja]
 plan_path = "ninja"
-[nmap]
-plan_path = "nmap"
 [node]
 plan_path = "node"
 [node6]
