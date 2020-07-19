@@ -47,13 +47,7 @@ do_unpack() {
   local clang_src_dir="$unpack_dir/tools/clang"
   mkdir -p "$clang_src_dir"
   pushd "$clang_src_dir" > /dev/null
-  # Per tar's help output:
-  #
-  #   --no-same-owner        extract files as yourself (default for ordinary users)
-  #
-  # The llvm package has some files owned by specific UIDs that we
-  # can't be sure exist on the builder or target system.
-  tar xf "$HAB_CACHE_SRC_PATH/cfe-${pkg_version}.src.tar.xz" --strip 1 --no-same-owner
+  tar xf "$HAB_CACHE_SRC_PATH/cfe-${pkg_version}.src.tar.xz" --strip 1
   popd > /dev/null
 }
 
