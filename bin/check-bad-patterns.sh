@@ -6,7 +6,6 @@
 # Authors:
 # - Thom May <thom@chef.io>
 
-set -eu
 requested=($@)
 # If we source files in our hook scripts, we need to check them too.
 additional=()
@@ -19,7 +18,7 @@ missing_source=()
 add_sourced() {
   sourced=${1//\"}
   # we can't do much with template expansion here.
-  if [[ $sourced =~ ^\{\{ ]]; then
+  if [[ $sourced =~ ^{{ ]]; then
     echo "Unable to check included file: ${sourced}"
     return
   fi
@@ -65,22 +64,16 @@ for file in "${requested[@]}"; do
   file_check "$file"
 done
 
-if [[ ${#additional[@]} -gt 0 ]]; then
-  for file in "${additional[@]}"; do
-    file_check "$file"
-  done
-fi
+for file in "${additional[@]}"; do
+  file_check "$file"
+done
 
 if [[ $sleeps -gt 0 || $habs -gt 0 || ${#missing_source[@]} -gt 0 ]]; then
   files=$(printf "; %s" "${requested[@]}")
-  if [[ ${#additional[@]} -gt 0 ]]; then
-    files+=$(printf "; %s" "${additional[@]}")
-  fi
+  files+=$(printf "; %s" "${additional[@]}")
   files=${files:2}
-  if [[ ${#missing_source[@]} -gt 0 ]]; then
-    sourced=$(printf ", %s" "${missing_source[@]}")
-    sourced=${sourced:2}
-  fi
+  sourced=$(printf ", %s" "${missing_source[@]}")
+  sourced=${sourced:2}
   echo "Error detected by Check Bad Patterns."
   echo "We checked these files: ${files}."
   echo ""

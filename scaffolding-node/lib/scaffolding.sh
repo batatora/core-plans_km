@@ -17,13 +17,7 @@ scaffolding_load() {
 }
 
 do_default_prepare() {
-  # The NODE_ENV must be development in order to
-  # install the dev dependencies that are
-  # required to run build scripts
-  export NODE_ENV=development
-
-  _detect_git
-
+  export NODE_ENV=production
   # The install prefix path for the app
   scaffolding_app_prefix="$pkg_prefix/$app_prefix"
   build_line "Setting NODE_ENV=$NODE_ENV"
@@ -88,6 +82,9 @@ EOT
   done
 }
 
+
+
+
 scaffolding_modules_install() {
   if [[ -n "${_uses_git:-}" ]]; then
     if ! git check-ignore node_modules && [[ -d node_modules ]]; then
@@ -100,17 +97,9 @@ scaffolding_modules_install() {
   fi
 
   build_line "Installing dependencies using $_pkg_manager $("$_pkg_manager" --version)"
-  # Many node dependencies require /usr/bin/env
-  # This directory is not created with Habitat by design
-  # Instead, we use core/coreutils for this functionality
-  # This sets up a symlink to simulate a /usr/bin/env,
-  # But still use coreutils
-  ln -svf "$(pkg_path_for coreutils)/bin/env" /usr/bin/env
-
   start_sec="$SECONDS"
   case "$_pkg_manager" in
     npm)
-
       if [[ ! -f "$CACHE_PATH/package.json" ]]; then
         cp -av package.json "$CACHE_PATH/"
       fi
@@ -120,23 +109,10 @@ scaffolding_modules_install() {
       if [[ -n "$HAB_NONINTERACTIVE" ]]; then
         export NPM_CONFIG_PROGRESS=false
       fi
-
-      # The following files are required
-      # for applications that use Angular-Seed
-      # https://github.com/mgechev/angular-seed
-      if [[ -f "gulpfile.ts" ]]; then
-        cp -av gulpfile.ts "$CACHE_PATH/"
-      fi
-      if [[ -d "tools" ]]; then
-        cp -R tools "$CACHE_PATH/"
-      fi
-      if [[ -f "tsconfig.json" ]]; then
-        cp -av tsconfig.json "$CACHE_PATH/"
-      fi
-
       pushd "$CACHE_PATH" > /dev/null
       npm install \
         --unsafe-perm \
+        --production \
         --loglevel error \
         --fetch-retries 5 \
         --userconfig "$CACHE_PATH/.npmrc"
@@ -148,17 +124,12 @@ scaffolding_modules_install() {
       if [[ -n "$HAB_NONINTERACTIVE" ]]; then
         extra_args="--no-progress"
       fi
-
       yarn install $extra_args \
         --pure-lockfile \
         --ignore-engines \
+        --production \
+        --modules-folder "$CACHE_PATH/node_modules" \
         --cache-folder "$CACHE_PATH/yarn_cache"
-
-      # We need to first install node_modules here,
-      # rather than in $CACHE_PATH/node_modules
-      # so we can run build scripts
-      # then we can copy node_modules to $CACHE_PATH
-      cp -a "./node_modules" "$CACHE_PATH/node_modules"
       ;;
     *)
       local e
@@ -286,10 +257,7 @@ _detect_package_json() {
     exit_with "Failed to parse package.json as JSON." 6
   fi
 
-  # Check if both a package.lock and a yarn.lock file are present
-  if [[ -f package-lock.json && -f yarn.lock ]]; then
-    exit_with "Both a package-lock.json and yarn.lock are present. We only can only suppport one .lock file." 6
-  fi
+  # TODO fin: do we check for any lockfiles here?
 }
 
 _detect_pkg_manager() {
@@ -310,9 +278,6 @@ _detect_pkg_manager() {
         exit_with "$e" 9
         ;;
     esac
-  elif [[ -f package-lock.json ]]; then
-    _pkg_manager=npm
-    build_line "Detected package-lock.json in root directory, using '$_pkg_manager'"
   elif [[ -f yarn.lock ]]; then
     _pkg_manager=yarn
     build_line "Detected yarn.lock in root directory, using '$_pkg_manager'"
@@ -406,7 +371,7 @@ _update_pkg_build_deps() {
   # Order here is important--entries which should be first in
   # `${pkg_build_deps[@]}` should be called last.
 
-  _add_git
+  _detect_git
   _detect_yarn
 
   # TODO fin: support different version of npm?
@@ -443,23 +408,17 @@ _update_svc_run() {
 
 _add_busybox() {
   build_line "Adding Busybox package to run dependencies"
-  # Need to specify core/busybox-static last
-  # So that it does not override the paths of core/coreutils
-  pkg_deps=(${pkg_deps[@]} core/busybox-static)
+  pkg_deps=(core/busybox-static ${pkg_deps[@]})
   debug "Updating pkg_deps=(${pkg_deps[*]}) from Scaffolding detection"
 }
 
-_add_git() {
-  build_line "Adding git to build dependencies"
-  pkg_build_deps=(core/git ${pkg_build_deps[@]})
-  debug "Updating pkg_build_deps=(${pkg_build_deps[*]}) from Scaffolding detection"
-}
 
 _detect_git() {
-  if git rev-parse --is-inside-work-tree ; then
-    build_line "Detected build is occuring inside a git work tree."
+  if [[ -d ".git" ]]; then
+    build_line "Detected '.git' directory, adding git packages as build deps"
+    pkg_build_deps=(core/git ${pkg_build_deps[@]})
+    debug "Updating pkg_build_deps=(${pkg_build_deps[*]}) from Scaffolding detection"
     _uses_git=true
-    debug "Setting _uses_git to true."
   fi
 }
 
@@ -662,67 +621,69 @@ stable_versions_list() {
 
 
 _nearest_version_on_builder() {
-  local original_version_string=$1
-  compat_regex="(^(>=|<=|=|v)?([0-9]+\.){0,2}(\*|[0-9]+)$)"
-  if ! [[ $original_version_string =~ $compat_regex ]]; then
-    echo "incompatible version string"
-    return
-  fi
+	local original_version_string=$1
 
-  local bare_version
-  bare_version=$(remove_single_chars "$1")
-
-  local full_version_number
-  full_version_number=$(_full_version_digits "$bare_version")
-
-  "$(pkg_path_for core/curl)"/bin/curl https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/node | $_jq . > data.json
-  builder_versions_list=$(stable_versions_list data.json)
-  rm -f data.json
-
-  builder_versions_array=($builder_versions_list)
-
-  for i in "${builder_versions_array[@]}"
-  do
-    # necessary to convert this to an integer
-    # in order to compare it to the full version number
-    # with semver
-    local parsed_i
-    parsed_i=$(echo "$i" | "$(pkg_path_for core/bc)"/bin/bc)
-    comparison_result=1
-
-    if [[ $original_version_string =~ (^=?[0-9])  ]]; then
-      if semverEQ "$parsed_i" "$full_version_number"; then
-        comparison_result=0
-      fi
-    elif [[ $original_version_string =~ (^<[0-9]) ]]; then
-      if semverLT "$parsed_i" "$full_version_number"; then
-        comparison_result=0
-      fi
-    elif [[ $original_version_string =~ (^>[0-9]) ]]; then
-      if semverGT "$parsed_i" "$full_version_number"; then
-        comparison_result=0
-      fi
-    elif [[ $original_version_string =~ (^<=[0-9]) ]]; then
-      if semverLE "$parsed_i" "$full_version_number"; then
-        comparison_result=0
-      fi
-    elif [[ $original_version_string =~ (^>=[0-9]) ]]; then
-      if semverGE "$parsed_i" "$full_version_number"; then
-        comparison_result=0
-      fi
+	if ! [[ $1 =~ ((v|=|>|>=|<=)?[0-9]) ]]; then
+        echo "incompatible version string"
+        return
     fi
-    if [ $comparison_result != 1 ];
-    then
-      local contender=$i
-    fi
-  done
 
-  if [ -z "${contender+x}" ];
-  then
-    echo "No compatible version of node found in the core origin on Habitat Builder"
-  else
-    echo "$contender"
-  fi
+    local bare_version
+	bare_version=$(remove_single_chars "$1")
+
+    local full_version_number
+	full_version_number=$(_full_version_digits "$bare_version")
+
+    "$(pkg_path_for core/curl)"/bin/curl https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/node | $_jq . > data.json
+
+	builder_versions_list=$(stable_versions_list data.json)
+
+    rm -f data.json
+
+	builder_versions_array=($builder_versions_list)
+
+	for i in "${builder_versions_array[@]}"
+	do
+		# necessary to convert this to an integer
+		# in order to compare it to the full version number
+		# with semver
+        local parsed_i
+		parsed_i=$(echo "$i" | "$(pkg_path_for core/bc)"/bin/bc)
+        comparison_result=1
+
+        if [[ $original_version_string =~ (^=?[0-9])  ]]; then
+			if semverEQ "$parsed_i" "$full_version_number"; then
+				comparison_result=0
+            fi
+		elif [[ $original_version_string =~ (^<[0-9]) ]]; then
+			if semverLT "$parsed_i" "$full_version_number"; then
+				comparison_result=0
+            fi
+		elif [[ $original_version_string =~ (^>[0-9]) ]]; then
+			if semverGT "$parsed_i" "$full_version_number"; then
+				comparison_result=0
+            fi
+		elif [[ $original_version_string =~ (^<=[0-9]) ]]; then
+			if semverLE "$parsed_i" "$full_version_number"; then
+				comparison_result=0
+            fi
+		elif [[ $original_version_string =~ (^>=[0-9]) ]]; then
+			if semverGE "$parsed_i" "$full_version_number"; then
+				comparison_result=0
+            fi
+		fi
+		if [ $comparison_result != 1 ];
+		then
+			local contender=$i
+		fi
+	done
+
+	if [ -z "${contender+x}" ];
+	then
+		echo "No compatible version of node found in the core origin on Habitat Builder"
+	else
+		echo "$contender"
+	fi
 }
 
 # Source: https://github.com/cloudflare/semver_bash

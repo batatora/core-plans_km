@@ -1,21 +1,24 @@
-#!/bin/bash
+#!/bin/sh
 
-set -euo pipefail
+raw_data=""
 
-cd {{pkg.svc_path}}
-
-curl_opts=""
-
-if [[ "{{cfg.etcd-auto-tls}}" == "true" ]]; then
-	curl_opts="${curl_opts} --insecure"
-elif [[ "{{cfg.etcd-client-cert-auth}}" == "true" ]]; then
-	curl_opts="${curl_opts} --cacert {{cfg.etcd-trusted-ca-file}} --cert {{cfg.etcd-cert-file}} --key {{cfg.etcd-key-file}}"
+if [ "{{cfg.etcd-auto-tls}}" = "true" ] ; then
+	raw_data="$(wget -qO - --no-check-certificate "https://{{sys.ip}}:{{cfg.etcd-client-end}}/health" | grep "true")"
+else
+	raw_data="$(wget -qO - "http://{{sys.ip}}:{{cfg.etcd-client-end}}/health" | grep "true")"
 fi
 
-if curl -sS ${curl_opts} "{{cfg.etcd-http-proto}}://{{sys.ip}}:{{cfg.etcd-client-end}}/health" | grep -q "true"; then
-  echo "etcd node healthy"
-  exit 0
-fi
+[[ -z $raw_data ]] || exit 3
 
-echo "etcd node unhealthy"
-exit 2
+status="$(echo "${raw_data::-1}" | cut -d " " -f 2)"
+
+case $status in
+	"true")
+		rc=0 ;;
+	"false")
+		rc=2 ;;
+	*)
+		rc=3 ;;
+esac
+
+exit $rc
