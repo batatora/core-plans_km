@@ -159,8 +159,6 @@ plan_path = "dotnet-core-lts"
 plan_path = "dotnet-core-sdk"
 [dotnet-core-sdk-lts]
 plan_path = "dotnet-core-sdk-lts"
-[dovecot]
-plan_path = "dovecot"
 [doxygen]
 plan_path = "doxygen"
 [dpkg]
@@ -833,6 +831,8 @@ plan_path = "rethinkdb"
 plan_path = "ripgrep"
 [rkt]
 plan_path = "rkt"
+[rlwrap]
+plan_path = "rlwrap"
 [rngd]
 plan_path = "rngd"
 [rpm]
