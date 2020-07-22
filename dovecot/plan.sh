@@ -1,15 +1,18 @@
-pkg_name=bind
+pkg_name=dovecot
 pkg_origin=core
-pkg_version=9.11.2
+pkg_version=2.3.0
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
-pkg_description="Versatile, Classic, Complete Name Server Software"
-pkg_upstream_url="https://www.isc.org/downloads/bind/"
-pkg_license=("MPL-2.0")
-pkg_source="https://ftp.isc.org/isc/bind9/9.11.2/bind-${pkg_version}.tar.gz"
-pkg_shasum="7f46ad8620f7c3b0ac375d7a5211b15677708fda84ce25d7aeb7222fe2e3c77a"
+pkg_description="Secure IMAP server"
+pkg_upstream_url="https://dovecot.org"
+pkg_license=("LGPL-2.1" "MIT")
+pkg_source="https://dovecot.org/releases/${pkg_version%.*}/${pkg_name}-${pkg_version}.tar.gz"
+pkg_shasum="de60cb470d025e4dd0f8e8fbbb4b9316dfd4930eb949d307330669ffbeaf8581"
+pkg_dirname="${pkg_name}-ce-${pkg_version}"
 pkg_deps=(
+  core/bzip2
   core/glibc
-  core/libxml2
+  core/linux-pam
+  core/lz4
   core/openssl
   core/zlib
 )
@@ -18,7 +21,7 @@ pkg_build_deps=(
   core/file
   core/gcc
   core/make
-  core/perl
+  core/pkg-config
 )
 pkg_bin_dirs=(
   bin
@@ -28,18 +31,14 @@ pkg_include_dirs=(include)
 pkg_lib_dirs=(lib)
 
 do_prepare() {
+  export CFLAGS="${CFLAGS} -O2"
+  export CXXFLAGS="${CXXFLAGS} -O2"
+
   # The configure script expects `file` binaries to be in `/usr/bin`
   if [[ ! -r /usr/bin/file ]]; then
     ln -sv "$(pkg_path_for file)/bin/file" /usr/bin/file
     _clean_file=true
   fi
-}
-
-do_build() {
-  ./configure --prefix="${pkg_prefix}" \
-    --with-libxml2="$(pkg_path_for "core/libxml2")" \
-    --with-openssl="$(pkg_path_for "core/openssl")"
-  make
 }
 
 do_end() {
