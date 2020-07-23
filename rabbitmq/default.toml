@@ -17,11 +17,10 @@ default_user="guest"
 default_pass="guest"
 
 [rabbitmq.management]
+
 # Whether to enable the rabbitmq management plugin.
 enabled=false
 
 [erlang]
-cookie=false
 
-[rabbitmq.cluster]
-enabled=false
+cookie="secure_cookie"

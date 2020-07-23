@@ -13,7 +13,7 @@ To become a maintainer, open a pull request to this list.
 
 ## Maintainers
 
-* [Tom Duffield](https://github.com/tduffield)
+* [Seth Chisamore](https://github.com/schisamo)
 * [Steven Danna](https://github.com/stevendanna)
 * [Elliott Davis](https://github.com/elliott-davis)
 * [Mike Fiedler](https://github.com/miketheman)
