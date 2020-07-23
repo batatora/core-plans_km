@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 exec 2>&1
 
-. "{{pkg.svc_config_path}}/env"
+source "{{pkg.svc_config_path}}/env"
 
 {{#if cfg.rabbitmq.cluster.enabled ~}}
 # Make sure that RabbitMQ started before we attempt to cluster

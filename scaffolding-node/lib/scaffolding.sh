@@ -22,8 +22,6 @@ do_default_prepare() {
   # required to run build scripts
   export NODE_ENV=development
 
-  _detect_git
-
   # The install prefix path for the app
   scaffolding_app_prefix="$pkg_prefix/$app_prefix"
   build_line "Setting NODE_ENV=$NODE_ENV"
@@ -406,7 +404,7 @@ _update_pkg_build_deps() {
   # Order here is important--entries which should be first in
   # `${pkg_build_deps[@]}` should be called last.
 
-  _add_git
+  _detect_git
   _detect_yarn
 
   # TODO fin: support different version of npm?
@@ -449,17 +447,13 @@ _add_busybox() {
   debug "Updating pkg_deps=(${pkg_deps[*]}) from Scaffolding detection"
 }
 
-_add_git() {
-  build_line "Adding git to build dependencies"
-  pkg_build_deps=(core/git ${pkg_build_deps[@]})
-  debug "Updating pkg_build_deps=(${pkg_build_deps[*]}) from Scaffolding detection"
-}
 
 _detect_git() {
-  if git rev-parse --is-inside-work-tree ; then
-    build_line "Detected build is occuring inside a git work tree."
+  if [[ -d ".git" ]]; then
+    build_line "Detected '.git' directory, adding git packages as build deps"
+    pkg_build_deps=(core/git ${pkg_build_deps[@]})
+    debug "Updating pkg_build_deps=(${pkg_build_deps[*]}) from Scaffolding detection"
     _uses_git=true
-    debug "Setting _uses_git to true."
   fi
 }
 
@@ -662,67 +656,69 @@ stable_versions_list() {
 
 
 _nearest_version_on_builder() {
-  local original_version_string=$1
-  compat_regex="(^(>=|<=|=|v)?([0-9]+\.){0,2}(\*|[0-9]+)$)"
-  if ! [[ $original_version_string =~ $compat_regex ]]; then
-    echo "incompatible version string"
-    return
-  fi
+	local original_version_string=$1
 
-  local bare_version
-  bare_version=$(remove_single_chars "$1")
-
-  local full_version_number
-  full_version_number=$(_full_version_digits "$bare_version")
-
-  "$(pkg_path_for core/curl)"/bin/curl https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/node | $_jq . > data.json
-  builder_versions_list=$(stable_versions_list data.json)
-  rm -f data.json
-
-  builder_versions_array=($builder_versions_list)
-
-  for i in "${builder_versions_array[@]}"
-  do
-    # necessary to convert this to an integer
-    # in order to compare it to the full version number
-    # with semver
-    local parsed_i
-    parsed_i=$(echo "$i" | "$(pkg_path_for core/bc)"/bin/bc)
-    comparison_result=1
-
-    if [[ $original_version_string =~ (^=?[0-9])  ]]; then
-      if semverEQ "$parsed_i" "$full_version_number"; then
-        comparison_result=0
-      fi
-    elif [[ $original_version_string =~ (^<[0-9]) ]]; then
-      if semverLT "$parsed_i" "$full_version_number"; then
-        comparison_result=0
-      fi
-    elif [[ $original_version_string =~ (^>[0-9]) ]]; then
-      if semverGT "$parsed_i" "$full_version_number"; then
-        comparison_result=0
-      fi
-    elif [[ $original_version_string =~ (^<=[0-9]) ]]; then
-      if semverLE "$parsed_i" "$full_version_number"; then
-        comparison_result=0
-      fi
-    elif [[ $original_version_string =~ (^>=[0-9]) ]]; then
-      if semverGE "$parsed_i" "$full_version_number"; then
-        comparison_result=0
-      fi
+	if ! [[ $1 =~ ((v|=|>|>=|<=)?[0-9]) ]]; then
+        echo "incompatible version string"
+        return
     fi
-    if [ $comparison_result != 1 ];
-    then
-      local contender=$i
-    fi
-  done
 
-  if [ -z "${contender+x}" ];
-  then
-    echo "No compatible version of node found in the core origin on Habitat Builder"
-  else
-    echo "$contender"
-  fi
+    local bare_version
+	bare_version=$(remove_single_chars "$1")
+
+    local full_version_number
+	full_version_number=$(_full_version_digits "$bare_version")
+
+    "$(pkg_path_for core/curl)"/bin/curl https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/node | $_jq . > data.json
+
+	builder_versions_list=$(stable_versions_list data.json)
+
+    rm -f data.json
+
+	builder_versions_array=($builder_versions_list)
+
+	for i in "${builder_versions_array[@]}"
+	do
+		# necessary to convert this to an integer
+		# in order to compare it to the full version number
+		# with semver
+        local parsed_i
+		parsed_i=$(echo "$i" | "$(pkg_path_for core/bc)"/bin/bc)
+        comparison_result=1
+
+        if [[ $original_version_string =~ (^=?[0-9])  ]]; then
+			if semverEQ "$parsed_i" "$full_version_number"; then
+				comparison_result=0
+            fi
+		elif [[ $original_version_string =~ (^<[0-9]) ]]; then
+			if semverLT "$parsed_i" "$full_version_number"; then
+				comparison_result=0
+            fi
+		elif [[ $original_version_string =~ (^>[0-9]) ]]; then
+			if semverGT "$parsed_i" "$full_version_number"; then
+				comparison_result=0
+            fi
+		elif [[ $original_version_string =~ (^<=[0-9]) ]]; then
+			if semverLE "$parsed_i" "$full_version_number"; then
+				comparison_result=0
+            fi
+		elif [[ $original_version_string =~ (^>=[0-9]) ]]; then
+			if semverGE "$parsed_i" "$full_version_number"; then
+				comparison_result=0
+            fi
+		fi
+		if [ $comparison_result != 1 ];
+		then
+			local contender=$i
+		fi
+	done
+
+	if [ -z "${contender+x}" ];
+	then
+		echo "No compatible version of node found in the core origin on Habitat Builder"
+	else
+		echo "$contender"
+	fi
 }
 
 # Source: https://github.com/cloudflare/semver_bash

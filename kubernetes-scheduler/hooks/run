@@ -1,9 +1,0 @@
-#!/bin/sh
-
-exec 2>&1
-
-cd {{pkg.svc_path}}
-
-exec kube-scheduler \
-  --master="{{cfg.master}}" \
-  --v=2
