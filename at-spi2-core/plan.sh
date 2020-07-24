@@ -19,7 +19,6 @@ pkg_build_deps=(
   core/diffutils
   core/file
   core/gcc
-  core/gettext
   core/make
   core/perl
   core/pkg-config

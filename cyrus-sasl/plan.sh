@@ -15,7 +15,6 @@ pkg_lib_dirs=(lib)
 
 do_build() {
   ./configure --prefix="${pkg_prefix}" \
-              --with-plugindir="${pkg_prefix}/lib/sasl2" \
               --enable-auth-sasldb \
               --with-saslauthd="${pkg_svc_var_path}/run/saslauthd"
   make

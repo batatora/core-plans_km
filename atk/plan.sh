@@ -15,9 +15,7 @@ pkg_deps=(
   core/pcre
 )
 pkg_build_deps=(
-  core/diffutils
   core/gcc
-  core/gettext
   core/make
   core/perl
   core/pkg-config

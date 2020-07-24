@@ -1,12 +1,12 @@
 pkg_name=kibana
-pkg_version=6.1.0
+pkg_version=5.6.4
 pkg_origin=core
 pkg_license=('Apache-2.0')
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_description="Kibana is a browser based analytics and search dashboard for Elasticsearch."
 pkg_upstream_url=https://www.elastic.co/products/kibana
 pkg_source=https://github.com/elastic/${pkg_name}/archive/v${pkg_version}.tar.gz
-pkg_shasum=3f9b9179bae432e45411f7b207578d8232ca2d6fc184a5780b6d696d6037b55a
+pkg_shasum=8592c1a89b55a2bbba717d82503c3ea219933953591951964531f8d708431fe5
 pkg_filename=${pkg_name}-${pkg_version}.tar.gz
 pkg_deps=(core/node)
 pkg_build_deps=(
