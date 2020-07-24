@@ -125,6 +125,8 @@ paths = [
 ]
 [cyrus-sasl]
 plan_path = "cyrus-sasl"
+[damageproto]
+plan_path = "damageproto"
 [db]
 plan_path = "db"
 [dbus]
@@ -141,6 +143,8 @@ plan_path = "devicemapper"
 plan_path = "dex"
 [diffutils]
 plan_path = "diffutils"
+[direnv]
+plan_path = "direnv"
 [docker]
 plan_path = "docker"
 [docutils]
@@ -159,6 +163,8 @@ plan_path = "dotnet-core-sdk-lts"
 plan_path = "doxygen"
 [dpkg]
 plan_path = "dpkg"
+[dri2proto]
+plan_path = "dri2proto"
 [drupal]
 plan_path = "drupal"
 [drush]
@@ -169,6 +175,8 @@ plan_path = "e2fsprogs"
 plan_path = "ed"
 [elasticsearch]
 plan_path = "elasticsearch"
+[elasticsearch5]
+plan_path = "elasticsearch5"
 [elfutils]
 plan_path = "elfutils"
 [elixir]
@@ -187,6 +195,8 @@ plan_path = "erlang19"
 plan_path = "etcd"
 [eudev]
 plan_path = "eudev"
+[exercism]
+plan_path = "exercism"
 [expat]
 plan_path = "expat"
 [expect]
@@ -205,6 +215,8 @@ plan_path = "fixesproto"
 plan_path = "flatbuffers"
 [flex]
 plan_path = "flex"
+[fluentd]
+plan_path = "fluentd"
 [fontconfig]
 plan_path = "fontconfig"
 [foulkon]
@@ -215,6 +227,8 @@ plan_path = "fping"
 plan_path = "freetype"
 [galera]
 plan_path = "galera"
+[gamin]
+plan_path = "gamin"
 [gawk]
 plan_path = "gawk"
 [gcc]
@@ -224,6 +238,8 @@ plan_path = "gcc-libs"
 paths = [
   "gcc/*",
 ]
+[gdal]
+plan_path = "gdal"
 [gdb]
 plan_path = "gdb"
 [gdbm]
@@ -234,6 +250,8 @@ plan_path = "gdk-pixbuf"
 plan_path = "gecode"
 [geoip]
 plan_path = "geoip"
+[geos]
+plan_path = "geos"
 [gettext]
 plan_path = "gettext"
 [giflib]
@@ -251,6 +269,8 @@ plan_path = "glibc"
 paths = [
   "tzdata/*",
 ]
+[glproto]
+plan_path = "glproto"
 [gmp]
 plan_path = "gmp"
 [gnatsd]
@@ -268,6 +288,8 @@ plan_path = "go"
 plan_path = "go14"
 [go17]
 plan_path = "go17"
+[goreplay]
+plan_path = "gorplay"
 [gox]
 plan_path = "gox"
 [gperf]
@@ -316,6 +338,8 @@ plan_path = "icu56"
 plan_path = "imagemagick"
 [inetutils]
 plan_path = "inetutils"
+[inotify-tools]
+plan_path = "inotify-tools"
 [inputproto]
 plan_path = "inputproto"
 [intltool]
@@ -330,6 +354,8 @@ plan_path = "jbigkit"
 plan_path = "jdk7"
 [jdk8]
 plan_path = "jdk8"
+[jdk9]
+plan_path = "jdk9"
 [jemalloc]
 plan_path = "jemalloc"
 [jenkins]
@@ -348,10 +374,14 @@ plan_path = "jq-static"
 plan_path = "jre7"
 [jre8]
 plan_path = "jre8"
+[jre9]
+plan_path = "jre9"
 [jruby]
 plan_path = "jruby"
 [jruby1]
 plan_path = "jruby1"
+[json-glib]
+plan_path = "json-glib"
 [kafka]
 plan_path = "kafka"
 [kbproto]
@@ -362,10 +392,39 @@ plan_path = "kibana"
 plan_path = "kmod"
 [krb5]
 plan_path = "krb5"
+[kubectl]
+plan_path = "kubectl"
 [kubernetes]
 plan_path = "kubernetes"
+[kubernetes-apiserver]
+plan_path = "kubernetes-apiserver"
+paths = [
+  "kubernetes/*",
+]
+[kubernetes-controller-manager]
+plan_path = "kubernetes-controller-manager"
+paths = [
+  "kubernetes/*",
+]
+[kubernetes-kubelet]
+plan_path = "kubernetes-kubelet"
+paths = [
+  "kubernetes/*",
+]
+[kubernetes-proxy]
+plan_path = "kubernetes-proxy"
+paths = [
+  "kubernetes/*",
+]
+[kubernetes-scheduler]
+plan_path = "kubernetes-scheduler"
+paths = [
+  "kubernetes/*",
+]
 [lcms2]
 plan_path = "lcms2"
+[leptonica]
+plan_path = "leptonica"
 [less]
 plan_path = "less"
 [leveldb]
@@ -391,6 +450,8 @@ plan_path = "libcap"
 plan_path = "libcap-ng"
 [libcxx]
 plan_path = "libcxx"
+[libdrm]
+plan_path = "libdrm"
 [libedit]
 plan_path = "libedit"
 [liberation-fonts-ttf]
@@ -423,6 +484,8 @@ plan_path = "libmpc"
 plan_path = "libossp-uuid"
 [libpcap]
 plan_path = "libpcap"
+[libpciaccess]
+plan_path = "libpciaccss"
 [libpipeline]
 plan_path = "libpipeline"
 [libpng]
@@ -451,6 +514,8 @@ plan_path = "libsodium-musl"
 paths = [
   "libsodium/*",
 ]
+[libssh2]
+plan_path = "libssh2"
 [libtermkey]
 plan_path = "libtermkey"
 [libtiff]
@@ -461,6 +526,8 @@ plan_path = "libtool"
 plan_path = "libunistring"
 [libunwind]
 plan_path = "libunwind"
+[libuv]
+plan_path = "libuv"
 [libvterm]
 plan_path = "libvterm"
 [libwebp]
@@ -469,6 +536,8 @@ plan_path = "libwebp"
 plan_path = "libxau"
 [libxcb]
 plan_path = "libxcb"
+[libxdamage]
+plan_path = "libxdamage"
 [libxdmcp]
 plan_path = "libxdmcp"
 [libxext]
@@ -485,6 +554,8 @@ plan_path = "libxmu"
 plan_path = "libxrandr"
 [libxrender]
 plan_path = "libxrender"
+[libxshmfence]
+plan_path = "libxshmfence"
 [libxslt]
 plan_path = "libxslt"
 [libxt]
@@ -553,6 +624,8 @@ plan_path = "memcached"
 plan_path = "mention-bot"
 [mercurial]
 plan_path = "mercurial"
+[meson]
+plan_path = "meson"
 [mg]
 plan_path = "mg"
 [monit]
@@ -564,8 +637,12 @@ paths = [
 plan_path = "mongo-tools"
 [mongodb]
 plan_path = "mongodb"
+[mosquitto]
+plan_path = "mosquitto"
 [mpfr]
 plan_path = "mpfr"
+[msgpack]
+plan_path = "msgpack"
 [mssql]
 plan_path = "mssql"
 [musl]
@@ -596,6 +673,8 @@ plan_path = "nghttp2"
 plan_path = "nginx"
 [ninja]
 plan_path = "ninja"
+[nmap]
+plan_path = "nmap"
 [node]
 plan_path = "node"
 [node6]
@@ -647,6 +726,8 @@ plan_path = "openvpn"
 plan_path = "packer"
 [pango]
 plan_path = "pango"
+[papi]
+plan_path = "papi"
 [patch]
 plan_path = "patch"
 [patchelf]
@@ -696,6 +777,8 @@ paths = [
 plan_path = "powershell"
 [procps-ng]
 plan_path = "procps-ng"
+[proj]
+plan_path = "proj"
 [prometheus]
 plan_path = "prometheus"
 [protobuf]
@@ -730,6 +813,8 @@ randrproto = "randrproto"
 plan_path = "re2c"
 [readline]
 plan_path = "readline"
+[rebar]
+plan_path = "rebar"
 [rebar3]
 plan_path = "rebar3"
 [recordproto]
@@ -744,6 +829,12 @@ plan_path = "renderproto"
 plan_path = "repo"
 [rethinkdb]
 plan_path = "rethinkdb"
+[ripgrep]
+plan_path = "ripgrep"
+[rkt]
+plan_path = "rkt"
+[rlwrap]
+plan_path = "rlwrap"
 [rngd]
 plan_path = "rngd"
 [rpm]
@@ -758,6 +849,8 @@ plan_path = "ruby"
 plan_path = "runit"
 [rust]
 plan_path = "rust"
+[rust-nightly]
+plan_path = "rust-nightly"
 [sassc]
 plan_path = "sassc"
 [scaffolding-base]
@@ -772,8 +865,12 @@ plan_path = "scaffolding-gradle"
 plan_path = "scaffolding-node"
 [scaffolding-ruby]
 plan_path = "scaffolding-ruby"
+[sccache]
+plan_path = "sccache"
 [scons]
 plan_path = "scons"
+[scowl]
+plan_path = "scowl"
 [sed]
 plan_path = "sed"
 [sensu]
@@ -828,6 +925,8 @@ plan_path = "tcpdump"
 plan_path = "telegraf"
 [terraform]
 plan_path = "terraform"
+[tesseract]
+plan_path = "tesseract"
 [texinfo]
 plan_path = "texinfo"
 [tmux]
@@ -848,6 +947,8 @@ plan_path = "tree"
 plan_path = "ttyrec"
 [tzdata]
 plan_path = "tzdata"
+[unibilium]
+plan_path = "unibilium"
 [unzip]
 plan_path = "unzip"
 [userspace-rcu]
