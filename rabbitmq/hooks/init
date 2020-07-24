@@ -1,0 +1,8 @@
+#!/bin/bash
+
+exec 2>&1
+
+if [ -f "{{pkg.svc_var_path}}/.erlang.cookie" ]; then
+  cp -Rv "{{pkg.svc_config_path}}/.erlang.cookie" "{{pkg.svc_var_path}}/.erlang.cookie"
+  chmod 400 "{{pkg.svc_var_path}}/.erlang.cookie"
+fi

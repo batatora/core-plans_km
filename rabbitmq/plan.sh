@@ -36,6 +36,10 @@ pkg_exports=(
   [port]=rabbitmq.listen_port
 )
 
+pkg_binds_optional=(
+  [rabbitmq]="port"
+)
+
 pkg_exposes=(port)
 
 do_prepare() {

@@ -1,12 +1,12 @@
 pkg_name=elasticsearch
 pkg_origin=core
-pkg_version=6.0.0
+pkg_version=5.6.1
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_description="Open Source, Distributed, RESTful Search Engine"
 pkg_upstream_url="https://elastic.co"
 pkg_license=('Revised BSD')
 pkg_source=https://artifacts.elastic.co/downloads/${pkg_name}/${pkg_name}-${pkg_version}.tar.gz
-pkg_shasum=0420e877a8b986485244f603770737e9e4e47186fdfa1093768a11e391e3d9f4
+pkg_shasum=006f9cb3886877df845e3c3dea8a688777fb739a862d3afe1a113c16a732715f
 pkg_deps=(
   core/busybox-static
   core/glibc
@@ -38,7 +38,7 @@ do_install() {
   cp -a ./* "${pkg_prefix}/es"
 
   # jvm.options needs to live relative to the binary.
-  # mkdir -p "$pkg_prefix/es/config"
+  # mkdir -p mkdir -p "$pkg_prefix/es/config"
   # install -vDm644 config/jvm.options "$pkg_prefix/es/config/jvm.options"
 
   # Delete unused binaries to save space
