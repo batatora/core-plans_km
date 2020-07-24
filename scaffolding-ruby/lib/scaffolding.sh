@@ -29,6 +29,8 @@ do_default_prepare() {
   # The install prefix path for the app
   scaffolding_app_prefix="$pkg_prefix/$app_prefix"
 
+  _detect_git
+
   # Determine Ruby engine, ABI version, and Gem path by running `ruby` itself.
   eval "$(ruby -rubygems -rrbconfig - <<-'EOF'
     puts "local ruby_engine=#{defined?(RUBY_ENGINE) ? RUBY_ENGINE : 'ruby'}"
@@ -47,6 +49,15 @@ EOF
 
   # Silence Bundler warning when run as root user
   export BUNDLE_SILENCE_ROOT_WARNING=1
+
+  # Attempt to preserve any original Bundler config by moving it to the side
+  if [[ -f .bundle/config ]]; then
+    build_line "Detecting existing bundler config. Temporarily renaming ..."
+    mv .bundle/config .bundle/config.prehab
+    dot_bundle=true
+  elif [[ -d .bundle ]]; then
+    dot_bundle=true
+  fi
 
   GEM_HOME="$gem_dir"
   build_line "Setting GEM_HOME=$GEM_HOME"
@@ -184,15 +195,7 @@ EOT
 
 
 scaffolding_bundle_install() {
-  local start_sec elapsed dot_bundle
-
-  # Attempt to preserve any original Bundler config by moving it to the side
-  if [[ -f .bundle/config ]]; then
-    mv .bundle/config .bundle/config.prehab
-    dot_bundle=true
-  elif [[ -d .bundle ]]; then
-    dot_bundle=true
-  fi
+  local start_sec elapsed
 
   build_line "Installing dependencies using $(_bundle --version)"
   start_sec="$SECONDS"
@@ -392,6 +395,7 @@ scaffolding_run_assets_precompile() {
     pushd "$scaffolding_app_prefix" > /dev/null
     if _rake -P --trace | grep -q '^rake assets:precompile$'; then
       build_line "Detected and running Rake 'assets:precompile'"
+      export DATABASE_URL=${DATABASE_URL:-"postgresql://nobody@nowhere/fake_db_to_appease_rails_env"}
       _rake assets:precompile
     fi
     popd > /dev/null
@@ -599,7 +603,7 @@ _update_pkg_build_deps() {
   # Order here is important--entries which should be first in
   # `${pkg_build_deps[@]}` should be called last.
 
-  _detect_git
+  _add_git
 }
 
 _update_pkg_deps() {
@@ -642,6 +646,12 @@ _add_busybox() {
   debug "Updating pkg_deps=(${pkg_deps[*]}) from Scaffolding detection"
 }
 
+_add_git() {
+  build_line "Adding git to build dependencies"
+  pkg_build_deps=(core/git ${pkg_build_deps[@]})
+  debug "Updating pkg_build_deps=(${pkg_build_deps[*]}) from Scaffolding detection"
+}
+
 _detect_execjs() {
   if _has_gem execjs; then
     build_line "Detected 'execjs' gem in Gemfile.lock, adding node packages"
@@ -651,11 +661,10 @@ _detect_execjs() {
 }
 
 _detect_git() {
-  if [[ -d ".git" ]]; then
-    build_line "Detected '.git' directory, adding git packages as build deps"
-    pkg_build_deps=(core/git ${pkg_build_deps[@]})
-    debug "Updating pkg_build_deps=(${pkg_build_deps[*]}) from Scaffolding detection"
+  if git rev-parse --is-inside-work-tree ; then
+    build_line "Detected build is occuring inside a git work tree."
     _uses_git=true
+    debug "Setting _uses_git to true."
   fi
 }
 
@@ -1024,7 +1033,9 @@ EOF
 }
 
 _restore_bundle_config() {
-  rm -f .bundle/config
-  mv .bundle/config.prehab .bundle/config
-  rm -f .bundle/config.prehab
+  build_line "Restoring original bundler config"
+  if [[ -f .bundle/config.prehab ]]; then
+    rm -f .bundle/config
+    mv .bundle/config.prehab .bundle/config
+  fi
 }
