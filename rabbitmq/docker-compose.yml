@@ -1,15 +1,9 @@
 version: '2'
 services:
-  rabbitmq1:
+  rabbitmq:
     image: core/rabbitmq
-    command: start core/rabbitmq --topology leader -I
   rabbitmq2:
     image: core/rabbitmq
     links:
-      - rabbitmq1
-    command: start core/rabbitmq --topology leader --peer rabbitmq1
-  rabbitmq3:
-    image: core/rabbitmq
-    links:
-      - rabbitmq1
-    command: start core/rabbitmq --topology leader --peer rabbitmq1
+      - rabbitmq
+    command: start core/rabbitmq --peer rabbitmq --bind rabbitmq:rabbitmq.default

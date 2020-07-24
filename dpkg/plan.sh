@@ -29,17 +29,6 @@ pkg_build_deps=(
   core/xz
   core/zlib
 )
-pkg_bin_dirs=(bin sbin)
+pkg_bin_dirs=(bin)
 pkg_include_dirs=(include)
 pkg_lib_dirs=(lib)
-pkg_description="Debian Package Manager"
-
-do_build() {
-  export prefix=$pkg_prefix
-  do_default_build
-}
-
-do_install() {
-  export prefix=$pkg_prefix
-  do_default_install
-}
