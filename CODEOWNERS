@@ -6,13 +6,13 @@ scaffolding-* @habitat-sh/scaffolding-maintainers
 #
 # All of these plans are critical for Builder's operation and build
 
-libarchive @reset @fnichol
-libsodium @reset @fnichol
-nginx @reset @fnichol
-postgresql @reset @fnichol @irvingpop
-protobuf @reset @fnichol
-protobuf-rust @reset @fnichol
-zeromq @reset @fnichol
+libarchive @reset @fnichol @raskchanky
+libsodium @reset @fnichol @raskchanky
+nginx @reset @fnichol @raskchanky
+postgresql @reset @fnichol @irvingpop @raskchanky
+protobuf @reset @fnichol @raskchanky
+protobuf-rust @reset @fnichol @raskchanky
+zeromq @reset @fnichol @raskchanky
 
 # # Base Plans
 #
@@ -90,11 +90,18 @@ xz-musl @fnichol
 libsodium-musl @fnichol @reset
 openssl-musl @fnichol
 libarchive-musl @fnichol @reset
-rust @fnichol @reset
+rust @fnichol @reset @raskchanky
 vim @fnichol
 libbsd @fnichol
 clens @fnichol
 mg @fnichol
+powershell @mwrock
+7zip @mwrock
+docker-credential-helper @mwrock
+lessmsi @mwrock
+visual-cpp-build-tools-2015 @mwrock
+visual-cpp-redist-2013 @mwrock
+wix @mwrock
 
 # # Community Plans
 #
@@ -130,3 +137,12 @@ wrk @afiune
 protobuf-cpp @afiune
 go @afiune
 dep @afiune
+dotnet-47-dev-pack @mwrock
+dotnet-core-lts @mwrock
+dotnet-core-sdk-lts @mwrock
+dotnet-core-sdk-preview @mwrock
+dotnet-core-sdkdotnet-core @mwrock
+innounp @mwrock
+mssql @mwrock
+nuget @mwrock
+visual-build-tools-2017 @mwrock
