@@ -111,7 +111,7 @@ wix @mwrock
 # This list shall be alphabetical, for sanity purposes.
 
 acbuild @rsertelon
-artifactory-pro @defilan
+artifactory @defilan
 atk @rsertelon
 cairo @rsertelon
 consul @defilan
