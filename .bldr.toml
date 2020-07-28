@@ -135,6 +135,8 @@ plan_path = "dbus"
 plan_path = "dd-agent"
 [dejagnu]
 plan_path = "dejagnu"
+[delmo]
+plan_path = "delmo"
 [dep]
 plan_path = "dep"
 [devicemapper]
@@ -923,6 +925,8 @@ plan_path = "spark"
 plan_path = "sqitch"
 [sqlite]
 plan_path = "sqlite"
+[sshpass]
+plan_path = "sshpass"
 [storm]
 plan_path = "storm"
 [strace]
