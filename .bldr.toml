@@ -6,8 +6,6 @@ plan_path = "acbuild"
 plan_path = "acl"
 [ant]
 plan_path = "ant"
-[ansible]
-plan_path = "ansible"
 [apr]
 plan_path = "apr"
 [apr-util]
@@ -137,8 +135,6 @@ plan_path = "dbus"
 plan_path = "dd-agent"
 [dejagnu]
 plan_path = "dejagnu"
-[delmo]
-plan_path = "delmo"
 [dep]
 plan_path = "dep"
 [devicemapper]
@@ -344,6 +340,8 @@ plan_path = "icu52"
 plan_path = "icu56"
 [imagemagick]
 plan_path = "imagemagick"
+[img]
+plan_path = "img"
 [inetutils]
 plan_path = "inetutils"
 [inotify-tools]
@@ -875,6 +873,8 @@ plan_path = "ruby25"
 paths = [
   "ruby/*"
 ]
+[runc]
+plan_path = "runc"
 [runit]
 plan_path = "runit"
 [rust]
@@ -927,8 +927,6 @@ plan_path = "spark"
 plan_path = "sqitch"
 [sqlite]
 plan_path = "sqlite"
-[sshpass]
-plan_path = "sshpass"
 [storm]
 plan_path = "storm"
 [strace]
