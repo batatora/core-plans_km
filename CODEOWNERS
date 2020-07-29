@@ -6,13 +6,13 @@ scaffolding-* @habitat-sh/scaffolding-maintainers
 #
 # All of these plans are critical for Builder's operation and build
 
-libarchive @reset @fnichol @raskchanky @nellshamrell
-libsodium @reset @fnichol @raskchanky @nellshamrell
-nginx @reset @fnichol @raskchanky @nellshamrell
-postgresql @reset @fnichol @irvingpop @raskchanky @nellshamrell
-protobuf @reset @fnichol @raskchanky @nellshamrell
-protobuf-rust @reset @fnichol @raskchanky @nellshamrell
-zeromq @reset @fnichol @raskchanky @nellshamrell
+libarchive @reset @fnichol
+libsodium @reset @fnichol
+nginx @reset @fnichol
+postgresql @reset @fnichol @irvingpop
+protobuf @reset @fnichol
+protobuf-rust @reset @fnichol
+zeromq @reset @fnichol
 
 # # Base Plans
 #
@@ -48,9 +48,9 @@ flex @fnichol
 pcre @fnichol
 grep @fnichol
 readline @fnichol
-bash @fnichol @nellshamrell
+bash @fnichol
 bc @fnichol
-tar @fnichol @nellshamrell
+tar @fnichol
 gawk @fnichol
 libtool @fnichol
 gdbm @fnichol
@@ -79,10 +79,10 @@ libidn @fnichol
 cacerts @fnichol
 openssl @fnichol @reset
 wget @fnichol
-unzip @fnichol @nellshamrell
+unzip @fnichol
 rq @fnichol
-linux-headers-musl @fnichol @nellshamrell
-musl @fnichol @nellshamrell
+linux-headers-musl @fnichol
+musl @fnichol
 busybox-static @fnichol
 zlib-musl @fnichol
 bzip2-musl @fnichol
@@ -90,18 +90,11 @@ xz-musl @fnichol
 libsodium-musl @fnichol @reset
 openssl-musl @fnichol
 libarchive-musl @fnichol @reset
-rust @fnichol @reset @raskchanky @nellshamrell
-vim @fnichol @nellshamrell
+rust @fnichol @reset
+vim @fnichol
 libbsd @fnichol
 clens @fnichol
 mg @fnichol
-powershell @mwrock
-7zip @mwrock
-docker-credential-helper @mwrock
-lessmsi @mwrock
-visual-cpp-build-tools-2015 @mwrock
-visual-cpp-redist-2013 @mwrock
-wix @mwrock
 
 # # Community Plans
 #
@@ -111,10 +104,8 @@ wix @mwrock
 # This list shall be alphabetical, for sanity purposes.
 
 acbuild @rsertelon
-artifactory-pro @defilan
 atk @rsertelon
 cairo @rsertelon
-consul @defilan
 elasticsearch @joshbrand @predominant
 gdk-pixbuf @rsertelon
 glib @rsertelon
@@ -131,7 +122,6 @@ kibana @joshbrand @predominant
 logstash @joshbrand @predominant
 monit @rsertelon
 mosquitto @rsertelon
-nmap @defilan
 pango @rsertelon
 rabbitmqadmin @predominant
 redis @irvingpop
@@ -140,13 +130,3 @@ wrk @afiune
 protobuf-cpp @afiune
 go @afiune
 dep @afiune
-dotnet-47-dev-pack @mwrock
-dotnet-core-lts @mwrock
-dotnet-core-sdk-lts @mwrock
-dotnet-core-sdk-preview @mwrock
-dotnet-core-sdkdotnet-core @mwrock
-innounp @mwrock
-mssql @mwrock
-nuget @mwrock
-vault @defilan
-visual-build-tools-2017 @mwrock
