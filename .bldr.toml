@@ -6,6 +6,8 @@ plan_path = "acbuild"
 plan_path = "acl"
 [ant]
 plan_path = "ant"
+[ansible]
+plan_path = "ansible"
 [apr]
 plan_path = "apr"
 [apr-util]
@@ -135,6 +137,8 @@ plan_path = "dbus"
 plan_path = "dd-agent"
 [dejagnu]
 plan_path = "dejagnu"
+[delmo]
+plan_path = "delmo"
 [dep]
 plan_path = "dep"
 [devicemapper]
@@ -159,6 +163,8 @@ plan_path = "dotnet-core-lts"
 plan_path = "dotnet-core-sdk"
 [dotnet-core-sdk-lts]
 plan_path = "dotnet-core-sdk-lts"
+[dovecot]
+plan_path = "dovecot"
 [doxygen]
 plan_path = "doxygen"
 [dpkg]
@@ -290,6 +296,10 @@ plan_path = "go"
 plan_path = "go14"
 [go17]
 plan_path = "go17"
+[googlemock]
+plan_path = "googlemock"
+[googletest]
+plan_path = "googletest"
 [goreplay]
 plan_path = "gorplay"
 [govc]
@@ -326,6 +336,8 @@ plan_path = "handlebars-cmd"
 plan_path = "haproxy"
 [harfbuzz]
 plan_path = "harfbuzz"
+[helm]
+plan_path = "helm"
 [htop]
 plan_path = "htop"
 [httpd]
@@ -429,6 +441,8 @@ paths = [
 ]
 [lcms2]
 plan_path = "lcms2"
+[leiningen]
+plan_path = "leiningen"
 [leptonica]
 plan_path = "leptonica"
 [less]
@@ -460,6 +474,8 @@ plan_path = "libcxx"
 plan_path = "libdrm"
 [libedit]
 plan_path = "libedit"
+[libepoxy]
+plan_path = "libepoxy"
 [liberation-fonts-ttf]
 plan_path = "liberation-fonts-ttf"
 [libev]
@@ -630,6 +646,8 @@ plan_path = "memcached"
 plan_path = "mention-bot"
 [mercurial]
 plan_path = "mercurial"
+[mesa]
+plan_path = "mesa"
 [meson]
 plan_path = "meson"
 [mg]
@@ -847,6 +865,11 @@ plan_path = "rlwrap"
 plan_path = "rngd"
 [rpm]
 plan_path = "rpm"
+[rpm2cpio]
+plan_path = "rpm2cpio"
+paths = [
+  "rpm2cpio/*"
+]
 [rq]
 plan_path = "rq"
 [rsync]
@@ -927,6 +950,8 @@ plan_path = "spark"
 plan_path = "sqitch"
 [sqlite]
 plan_path = "sqlite"
+[sshpass]
+plan_path = "sshpass"
 [storm]
 plan_path = "storm"
 [strace]
