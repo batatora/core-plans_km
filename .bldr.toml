@@ -294,6 +294,10 @@ plan_path = "go"
 plan_path = "go14"
 [go17]
 plan_path = "go17"
+[googlemock]
+plan_path = "googlemock"
+[googletest]
+plan_path = "googletest"
 [goreplay]
 plan_path = "gorplay"
 [govc]
@@ -636,6 +640,8 @@ plan_path = "memcached"
 plan_path = "mention-bot"
 [mercurial]
 plan_path = "mercurial"
+[mesa]
+plan_path = "mesa"
 [meson]
 plan_path = "meson"
 [mg]
@@ -853,6 +859,11 @@ plan_path = "rlwrap"
 plan_path = "rngd"
 [rpm]
 plan_path = "rpm"
+[rpm2cpio]
+plan_path = "rpm2cpio"
+paths = [
+  "rpm2cpio/*"
+]
 [rq]
 plan_path = "rq"
 [rsync]
