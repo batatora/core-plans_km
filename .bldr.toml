@@ -151,6 +151,8 @@ plan_path = "diffutils"
 plan_path = "direnv"
 [docker]
 plan_path = "docker"
+[docker-compose]
+plan_path = "docker-compose"
 [docutils]
 plan_path = "docutils"
 [dosfstools]
@@ -540,8 +542,6 @@ paths = [
 ]
 [libssh2]
 plan_path = "libssh2"
-[libtalloc]
-plan_path = "libtalloc"
 [libtermkey]
 plan_path = "libtermkey"
 [libtiff]
