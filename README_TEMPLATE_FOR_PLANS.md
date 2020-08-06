@@ -77,8 +77,6 @@ If your plan has configuration values that require a complete rebuild when updat
 
 How would a user scale this service?
 
-Can this service be run in a cluster and/or as high availability?
-
 ## Monitoring
 
 *(This is only required for service packages, not [binary wrapper packages](https://www.habitat.sh/docs/best-practices/#binary-wrapper-packages)))*
@@ -86,8 +84,6 @@ Can this service be run in a cluster and/or as high availability?
 (Optional, but recommended)
 
 How would a user monitor the health of this surface at the application layer?
-
-This is separate from information about Habitat's HTTP API monitoring service.  This section should include some suggestions about how someone could monitor the application or service outside of Habitat - i.e. using something like sumologic, logstash, etc.  It does not need to be prescriptive, but should include some suggestions of where someone might start.
 
 ## Notes
 
