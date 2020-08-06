@@ -151,8 +151,6 @@ plan_path = "diffutils"
 plan_path = "direnv"
 [docker]
 plan_path = "docker"
-[docker-compose]
-plan_path = "docker-compose"
 [docutils]
 plan_path = "docutils"
 [dosfstools]
@@ -667,10 +665,6 @@ paths = [
 plan_path = "mongo-tools"
 [mongodb]
 plan_path = "mongodb"
-[mono4]
-plan_path = "mono4"
-[mono5]
-plan_path = "mono5"
 [mosquitto]
 plan_path = "mosquitto"
 [mpfr]
