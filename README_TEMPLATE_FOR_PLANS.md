@@ -12,7 +12,7 @@ This should state whether the package is a service package or a binary package.
 
 A service package is something that will be run by the Habitat supervisor (i.e. core/postgresql).  A service package must always have a run file or define pkg_svc_run in the plan.sh file.
 
-A binary package is something that packages up a standalone binary, something that does not need to run under the Habitat supervisor (i.e. core/dep). They are often used as dependencies of other packages. Binary packages do not have a run file and do not need to define pkg_svc_run in the plan.sh file.
+Checkout the documentation for [binary wrapper packages](https://www.habitat.sh/docs/best-practices/#binary-wrapper-packages) for more clarity on binary packages.
 
 ## Usage
 
@@ -77,8 +77,6 @@ If your plan has configuration values that require a complete rebuild when updat
 
 How would a user scale this service?
 
-Can this service be run in a cluster and/or as high availability?
-
 ## Monitoring
 
 *(This is only required for service packages, not [binary wrapper packages](https://www.habitat.sh/docs/best-practices/#binary-wrapper-packages)))*
@@ -86,8 +84,6 @@ Can this service be run in a cluster and/or as high availability?
 (Optional, but recommended)
 
 How would a user monitor the health of this surface at the application layer?
-
-This is separate from information about Habitat's HTTP API monitoring service.  This section should include some suggestions about how someone could monitor the application or service outside of Habitat - i.e. using something like sumologic, logstash, etc.  It does not need to be prescriptive, but should include some suggestions of where someone might start.
 
 ## Notes
 
