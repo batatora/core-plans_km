@@ -151,6 +151,8 @@ plan_path = "diffutils"
 plan_path = "direnv"
 [docker]
 plan_path = "docker"
+[docker-compose]
+plan_path = "docker-compose"
 [docutils]
 plan_path = "docutils"
 [dosfstools]
@@ -163,6 +165,8 @@ plan_path = "dotnet-core-lts"
 plan_path = "dotnet-core-sdk"
 [dotnet-core-sdk-lts]
 plan_path = "dotnet-core-sdk-lts"
+[dovecot]
+plan_path = "dovecot"
 [doxygen]
 plan_path = "doxygen"
 [dpkg]
@@ -294,6 +298,10 @@ plan_path = "go"
 plan_path = "go14"
 [go17]
 plan_path = "go17"
+[googlemock]
+plan_path = "googlemock"
+[googletest]
+plan_path = "googletest"
 [goreplay]
 plan_path = "gorplay"
 [govc]
@@ -330,6 +338,8 @@ plan_path = "handlebars-cmd"
 plan_path = "haproxy"
 [harfbuzz]
 plan_path = "harfbuzz"
+[helm]
+plan_path = "helm"
 [htop]
 plan_path = "htop"
 [httpd]
@@ -344,6 +354,8 @@ plan_path = "icu52"
 plan_path = "icu56"
 [imagemagick]
 plan_path = "imagemagick"
+[img]
+plan_path = "img"
 [inetutils]
 plan_path = "inetutils"
 [inotify-tools]
@@ -464,6 +476,8 @@ plan_path = "libcxx"
 plan_path = "libdrm"
 [libedit]
 plan_path = "libedit"
+[libepoxy]
+plan_path = "libepoxy"
 [liberation-fonts-ttf]
 plan_path = "liberation-fonts-ttf"
 [libev]
@@ -484,6 +498,8 @@ plan_path = "libice"
 plan_path = "libiconv"
 [libidn]
 plan_path = "libidn"
+[libidn2]
+plan_path = "libidn2"
 [libjpeg-turbo]
 plan_path = "libjpeg-turbo"
 [libksba]
@@ -526,6 +542,8 @@ paths = [
 ]
 [libssh2]
 plan_path = "libssh2"
+[libtalloc]
+plan_path = "libtalloc"
 [libtermkey]
 plan_path = "libtermkey"
 [libtiff]
@@ -634,6 +652,8 @@ plan_path = "memcached"
 plan_path = "mention-bot"
 [mercurial]
 plan_path = "mercurial"
+[mesa]
+plan_path = "mesa"
 [meson]
 plan_path = "meson"
 [mg]
@@ -647,6 +667,10 @@ paths = [
 plan_path = "mongo-tools"
 [mongodb]
 plan_path = "mongodb"
+[mono4]
+plan_path = "mono4"
+[mono5]
+plan_path = "mono5"
 [mosquitto]
 plan_path = "mosquitto"
 [mpfr]
@@ -851,6 +875,11 @@ plan_path = "rlwrap"
 plan_path = "rngd"
 [rpm]
 plan_path = "rpm"
+[rpm2cpio]
+plan_path = "rpm2cpio"
+paths = [
+  "rpm2cpio/*"
+]
 [rq]
 plan_path = "rq"
 [rsync]
@@ -877,6 +906,8 @@ plan_path = "ruby25"
 paths = [
   "ruby/*"
 ]
+[runc]
+plan_path = "runc"
 [runit]
 plan_path = "runit"
 [rust]
