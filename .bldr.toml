@@ -6,8 +6,6 @@ plan_path = "acbuild"
 plan_path = "acl"
 [ant]
 plan_path = "ant"
-[ansible]
-plan_path = "ansible"
 [apr]
 plan_path = "apr"
 [apr-util]
@@ -47,6 +45,8 @@ plan_path = "bats"
 plan_path = "bc"
 [bdwgc]
 plan_path = "bdwgc"
+[bind]
+plan_path = "bind"
 [binutils]
 plan_path = "binutils"
 [bison]
@@ -137,8 +137,6 @@ plan_path = "dbus"
 plan_path = "dd-agent"
 [dejagnu]
 plan_path = "dejagnu"
-[delmo]
-plan_path = "delmo"
 [dep]
 plan_path = "dep"
 [devicemapper]
@@ -151,10 +149,6 @@ plan_path = "diffutils"
 plan_path = "direnv"
 [docker]
 plan_path = "docker"
-[docker17]
-plan_path = "docker17"
-[docker-compose]
-plan_path = "docker-compose"
 [docutils]
 plan_path = "docutils"
 [dosfstools]
@@ -167,8 +161,6 @@ plan_path = "dotnet-core-lts"
 plan_path = "dotnet-core-sdk"
 [dotnet-core-sdk-lts]
 plan_path = "dotnet-core-sdk-lts"
-[dovecot]
-plan_path = "dovecot"
 [doxygen]
 plan_path = "doxygen"
 [dpkg]
@@ -191,8 +183,6 @@ plan_path = "elasticsearch5"
 plan_path = "elfutils"
 [elixir]
 plan_path = "elixir"
-[envconsul]
-plan_path = "envconsul"
 [envdir]
 plan_path = "envdir"
 [erlang]
@@ -300,14 +290,8 @@ plan_path = "go"
 plan_path = "go14"
 [go17]
 plan_path = "go17"
-[googlemock]
-plan_path = "googlemock"
-[googletest]
-plan_path = "googletest"
 [goreplay]
 plan_path = "gorplay"
-[govc]
-plan_path = "govc"
 [gox]
 plan_path = "gox"
 [gperf]
@@ -324,8 +308,6 @@ plan_path = "graphviz"
 plan_path = "grep"
 [groff]
 plan_path = "groff"
-[grpcurl]
-plan_path = "grpcurl"
 [grub]
 plan_path = "grub"
 [gsl]
@@ -342,8 +324,6 @@ plan_path = "handlebars-cmd"
 plan_path = "haproxy"
 [harfbuzz]
 plan_path = "harfbuzz"
-[helm]
-plan_path = "helm"
 [htop]
 plan_path = "htop"
 [httpd]
@@ -358,8 +338,6 @@ plan_path = "icu52"
 plan_path = "icu56"
 [imagemagick]
 plan_path = "imagemagick"
-[img]
-plan_path = "img"
 [inetutils]
 plan_path = "inetutils"
 [inotify-tools]
@@ -447,8 +425,6 @@ paths = [
 ]
 [lcms2]
 plan_path = "lcms2"
-[leiningen]
-plan_path = "leiningen"
 [leptonica]
 plan_path = "leptonica"
 [less]
@@ -480,8 +456,6 @@ plan_path = "libcxx"
 plan_path = "libdrm"
 [libedit]
 plan_path = "libedit"
-[libepoxy]
-plan_path = "libepoxy"
 [liberation-fonts-ttf]
 plan_path = "liberation-fonts-ttf"
 [libev]
@@ -502,8 +476,6 @@ plan_path = "libice"
 plan_path = "libiconv"
 [libidn]
 plan_path = "libidn"
-[libidn2]
-plan_path = "libidn2"
 [libjpeg-turbo]
 plan_path = "libjpeg-turbo"
 [libksba]
@@ -520,8 +492,6 @@ plan_path = "libpciaccss"
 plan_path = "libpipeline"
 [libpng]
 plan_path = "libpng"
-[libpq]
-plan_path = "libpq"
 [libpthread-stubs]
 plan_path = "libpthread-stubs"
 [libressl]
@@ -546,8 +516,6 @@ paths = [
 ]
 [libssh2]
 plan_path = "libssh2"
-[libtalloc]
-plan_path = "libtalloc"
 [libtermkey]
 plan_path = "libtermkey"
 [libtiff]
@@ -656,8 +624,6 @@ plan_path = "memcached"
 plan_path = "mention-bot"
 [mercurial]
 plan_path = "mercurial"
-[mesa]
-plan_path = "mesa"
 [meson]
 plan_path = "meson"
 [mg]
@@ -671,10 +637,6 @@ paths = [
 plan_path = "mongo-tools"
 [mongodb]
 plan_path = "mongodb"
-[mono4]
-plan_path = "mono4"
-[mono5]
-plan_path = "mono5"
 [mosquitto]
 plan_path = "mosquitto"
 [mpfr]
@@ -794,8 +756,6 @@ plan_path = "polipo"
 plan_path = "ponysay"
 [popt]
 plan_path = "popt"
-[postfix]
-plan_path = "postfix"
 [postgresql]
 plan_path = "postgresql"
 [postgresql93]
@@ -821,8 +781,6 @@ plan_path = "procps-ng"
 plan_path = "proj"
 [prometheus]
 plan_path = "prometheus"
-[prometheus-cpp]
-plan_path = "prometheus-cpp"
 [protobuf]
 plan_path = "protobuf"
 [protobuf-c]
@@ -875,45 +833,16 @@ plan_path = "rethinkdb"
 plan_path = "ripgrep"
 [rkt]
 plan_path = "rkt"
-[rlwrap]
-plan_path = "rlwrap"
 [rngd]
 plan_path = "rngd"
 [rpm]
 plan_path = "rpm"
-[rpm2cpio]
-plan_path = "rpm2cpio"
-paths = [
-  "rpm2cpio/*"
-]
 [rq]
 plan_path = "rq"
 [rsync]
 plan_path = "rsync"
 [ruby]
 plan_path = "ruby"
-[ruby22]
-plan_path = "ruby22"
-paths = [
-  "ruby/*"
-]
-[ruby23]
-plan_path = "ruby23"
-paths = [
-  "ruby/*"
-]
-[ruby24]
-plan_path = "ruby24"
-paths = [
-  "ruby/*"
-]
-[ruby25]
-plan_path = "ruby25"
-paths = [
-  "ruby/*"
-]
-[runc]
-plan_path = "runc"
 [runit]
 plan_path = "runit"
 [rust]
@@ -934,8 +863,6 @@ plan_path = "scaffolding-gradle"
 plan_path = "scaffolding-node"
 [scaffolding-ruby]
 plan_path = "scaffolding-ruby"
-[sccache]
-plan_path = "sccache"
 [scons]
 plan_path = "scons"
 [scowl]
@@ -966,8 +893,6 @@ plan_path = "spark"
 plan_path = "sqitch"
 [sqlite]
 plan_path = "sqlite"
-[sshpass]
-plan_path = "sshpass"
 [storm]
 plan_path = "storm"
 [strace]
