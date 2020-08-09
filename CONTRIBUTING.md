@@ -17,6 +17,7 @@ In order for a package to be accepted as a core package, the following requireme
 - [Package Metadata](#package-metadata)
 - [Package Name Conventions](#package-name-conventions)
 - [Adding an older version of a core package](#adding-an-older-version-of-a-core-package)
+- [Dependencies](#dependencies)
 - [Plan syntax](#plan-syntax)
 - [Linting your plans](#linting-your-plans)
 - [Pre-commit hooks](#pre-commit-hooks)
@@ -70,6 +71,10 @@ Please *do not* issue a PR containing a new plan for the specific version of sof
 
 Issues with an associated gist containing a working fork of our current plan which builds the version of the software will be attended to first.
 
+## Dependencies
+
+If your package has dependencies, it must only depend on other packages in the core origin.
+
 ## Plan syntax
 
 You can review the entire [plan syntax guide here](https://www.habitat.sh/docs/developing-packages/).
@@ -120,6 +125,8 @@ The supervisor dynamically invokes hooks at run-time, triggered by an applicatio
   - No one should write to anything in `/hab/` directly.
 
 ### README
+
+Check out the [core plans README template](https://github.com/habitat-sh/core-plans/blob/master/README_TEMPLATE_FOR_PLANS.md) for a quick start!
 
 All plans should have a README. In core plans, it is a hard requirement. Your README at a bare minimum should include:
 
@@ -220,7 +227,7 @@ Git makes it easy to add this line to your commit messages.
 
 ## Separate Changes, Separate Pull Requests
 
-Each package being changed should be separated into its own pull request. E.g. If you are making a change to `core/openssl` and your change requires another change in `core/curl` to be merged, each of these changes should be submitted as two different PRs with a note about the order in which each thing should be submitted. 
+Each package being changed should be separated into its own pull request. E.g. If you are making a change to `core/openssl` and your change requires another change in `core/curl` to be merged, each of these changes should be submitted as two different PRs with a note about the order in which each thing should be submitted.
 
 Each of these change PRs submitted should include a bracketed packagename as the prefix to the change information. For example in the previously defined situation the PR titles above might titled like so:
 
