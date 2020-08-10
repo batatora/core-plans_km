@@ -47,8 +47,6 @@ plan_path = "bats"
 plan_path = "bc"
 [bdwgc]
 plan_path = "bdwgc"
-[bind]
-plan_path = "bind"
 [binutils]
 plan_path = "binutils"
 [bison]
@@ -326,8 +324,6 @@ plan_path = "graphviz"
 plan_path = "grep"
 [groff]
 plan_path = "groff"
-[grpcurl]
-plan_path = "grpcurl"
 [grub]
 plan_path = "grub"
 [gsl]
