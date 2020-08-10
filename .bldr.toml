@@ -47,6 +47,8 @@ plan_path = "bats"
 plan_path = "bc"
 [bdwgc]
 plan_path = "bdwgc"
+[bind]
+plan_path = "bind"
 [binutils]
 plan_path = "binutils"
 [bison]
@@ -151,6 +153,8 @@ plan_path = "diffutils"
 plan_path = "direnv"
 [docker]
 plan_path = "docker"
+[docker17]
+plan_path = "docker17"
 [docker-compose]
 plan_path = "docker-compose"
 [docutils]
@@ -322,6 +326,8 @@ plan_path = "graphviz"
 plan_path = "grep"
 [groff]
 plan_path = "groff"
+[grpcurl]
+plan_path = "grpcurl"
 [grub]
 plan_path = "grub"
 [gsl]
@@ -667,6 +673,10 @@ paths = [
 plan_path = "mongo-tools"
 [mongodb]
 plan_path = "mongodb"
+[mono4]
+plan_path = "mono4"
+[mono5]
+plan_path = "mono5"
 [mosquitto]
 plan_path = "mosquitto"
 [mpfr]
@@ -813,6 +823,8 @@ plan_path = "procps-ng"
 plan_path = "proj"
 [prometheus]
 plan_path = "prometheus"
+[prometheus-cpp]
+plan_path = "prometheus-cpp"
 [protobuf]
 plan_path = "protobuf"
 [protobuf-c]
