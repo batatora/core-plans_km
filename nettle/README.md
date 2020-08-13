@@ -1,6 +1,6 @@
-# libtasn1
+# nettle
 
-This package provides an ASN.1 implementation
+This package provides a low-level cryptographic library
 
 ## Maintainers
 
@@ -15,4 +15,4 @@ Binary package
 Typically this is a runtime dependency that can be added to your
 plan.sh:
 
-    pkg_deps=(core/libtasn1)
+    pkg_deps=(core/nettle)
