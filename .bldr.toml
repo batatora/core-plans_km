@@ -576,8 +576,6 @@ plan_path = "libwebp"
 plan_path = "libxau"
 [libxcb]
 plan_path = "libxcb"
-[libxcursor]
-plan_path = "libxcursor"
 [libxdamage]
 plan_path = "libxdamage"
 [libxdmcp]
@@ -950,6 +948,8 @@ plan_path = "sccache"
 plan_path = "scons"
 [scowl]
 plan_path = "scowl"
+[scrnsaverproto]
+plan_path = "scrnsaverproto"
 [sed]
 plan_path = "sed"
 [sensu]
