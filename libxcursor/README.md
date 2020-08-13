@@ -1,6 +1,6 @@
-# p11-kit
+# libxcursor
 
-Provides a way to load and enumerate PKCS#11 modules.
+X Window System Cursor management library
 
 ## Maintainers
 
@@ -15,4 +15,4 @@ Binary package
 Typically this is a runtime dependency that can be added to your
 plan.sh:
 
-    pkg_deps=(core/p11-kit)
+    pkg_deps=(core/libxcursor)
