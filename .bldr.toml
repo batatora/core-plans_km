@@ -713,8 +713,6 @@ plan_path = "net-tools"
 plan_path = "netcat"
 [netcat-openbsd]
 plan_path = "netcat-openbsd"
-[nettle]
-plan_path = "nettle"
 [nghttp2]
 plan_path = "nghttp2"
 [nginx]
@@ -770,6 +768,8 @@ paths = [
 ]
 [openvpn]
 plan_path = "openvpn"
+[p11-kit]
+plan_path = "p11-kit"
 [packer]
 plan_path = "packer"
 [pango]

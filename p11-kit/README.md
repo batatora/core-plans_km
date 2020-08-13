@@ -1,6 +1,6 @@
-# nettle
+# p11-kit
 
-This package provides a low-level cryptographic library
+Provides a way to load and enumerate PKCS#11 modules.
 
 ## Maintainers
 
@@ -15,4 +15,4 @@ Binary package
 Typically this is a runtime dependency that can be added to your
 plan.sh:
 
-    pkg_deps=(core/nettle)
+    pkg_deps=(core/p11-kit)
