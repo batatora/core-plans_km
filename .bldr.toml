@@ -101,6 +101,8 @@ plan_path = "clingo"
 plan_path = "cmake"
 [composer]
 plan_path = "composer"
+[compositeproto]
+plan_path = "compositeproto"
 [concourse]
 plan_path = "concourse"
 [consul]
@@ -576,6 +578,8 @@ plan_path = "libwebp"
 plan_path = "libxau"
 [libxcb]
 plan_path = "libxcb"
+[libxcursor]
+plan_path = "libxcursor"
 [libxdamage]
 plan_path = "libxdamage"
 [libxdmcp]
