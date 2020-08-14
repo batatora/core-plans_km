@@ -594,6 +594,8 @@ plan_path = "libxmu"
 plan_path = "libxrandr"
 [libxrender]
 plan_path = "libxrender"
+[libxscrnsaver]
+plan_path = "libxscrnsaver"
 [libxshmfence]
 plan_path = "libxshmfence"
 [libxslt]
@@ -948,8 +950,6 @@ plan_path = "sccache"
 plan_path = "scons"
 [scowl]
 plan_path = "scowl"
-[scrnsaverproto]
-plan_path = "scrnsaverproto"
 [sed]
 plan_path = "sed"
 [sensu]
