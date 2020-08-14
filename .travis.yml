@@ -3,6 +3,12 @@ branches:
   - master
 language: python
 cache: pip
+addons:
+  apt:
+    sources:
+    - debian-sid  # Grab shellcheck from the Debian repo (o_O)
+    packages:
+    - shellcheck
 install:
   - pip install pre-commit
 notifications:
