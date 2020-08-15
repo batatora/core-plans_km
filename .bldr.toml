@@ -99,8 +99,6 @@ plan_path = "clens"
 plan_path = "clingo"
 [cmake]
 plan_path = "cmake"
-[cockroach]
-plan_path = "cockroach"
 [composer]
 plan_path = "composer"
 [compositeproto]
