@@ -1,6 +1,6 @@
-# xlib
+# p11-kit
 
-X11 protocol client library
+Provides a way to load and enumerate PKCS#11 modules.
 
 ## Maintainers
 
@@ -15,4 +15,4 @@ Binary package
 Typically this is a runtime dependency that can be added to your
 plan.sh:
 
-    pkg_deps=(core/xlib)
+    pkg_deps=(core/p11-kit)

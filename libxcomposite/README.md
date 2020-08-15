@@ -1,6 +1,6 @@
-# xlib
+# libxcomposite
 
-X11 protocol client library
+This package provides the libXcomposite libraries
 
 ## Maintainers
 
@@ -15,4 +15,4 @@ Binary package
 Typically this is a runtime dependency that can be added to your
 plan.sh:
 
-    pkg_deps=(core/xlib)
+    pkg_deps=(core/libxcomposite)

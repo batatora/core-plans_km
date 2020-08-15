@@ -1,6 +1,6 @@
-# xlib
+# nettle
 
-X11 protocol client library
+This package provides a low-level cryptographic library
 
 ## Maintainers
 
@@ -15,4 +15,4 @@ Binary package
 Typically this is a runtime dependency that can be added to your
 plan.sh:
 
-    pkg_deps=(core/xlib)
+    pkg_deps=(core/nettle)

@@ -1,6 +1,6 @@
-# xlib
+# libxcursor
 
-X11 protocol client library
+X Window System Cursor management library
 
 ## Maintainers
 
@@ -15,4 +15,4 @@ Binary package
 Typically this is a runtime dependency that can be added to your
 plan.sh:
 
-    pkg_deps=(core/xlib)
+    pkg_deps=(core/libxcursor)
