@@ -1,14 +1,14 @@
-pkg_name=dotnet-core
+pkg_name=dotnet-core-lts
 pkg_origin=core
-pkg_version=1.1.2
+pkg_version=1.0.5
 pkg_license=('MIT')
 pkg_upstream_url=https://www.microsoft.com/net/core
 pkg_description=".NET Core is a blazing fast, lightweight and modular platform
   for creating web applications and services that run on Windows,
-  Linux and Mac."
+  Linux and Mac. LTS release channel."
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_source="https://dotnetcli.blob.core.windows.net/dotnet/Runtime/${pkg_version}/dotnet-debian-x64.${pkg_version}.tar.gz"
-pkg_shasum=26f6a2e247dd0b9ac4003d12cf1bd8647985255fdd7659b60e36a7a26fce15de
+pkg_shasum=55481b0254a72d8c342ba6ccca3908ffb5c99d7eeb54f83dec6cc93c6b4cc3ae
 pkg_filename="dotnet-debian-x64.${pkg_version}.tar.gz"
 pkg_deps=(
   core/curl
