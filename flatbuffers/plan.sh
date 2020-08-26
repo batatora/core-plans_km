@@ -1,6 +1,6 @@
 pkg_name=flatbuffers
 pkg_origin=core
-pkg_version=1.9.0
+pkg_version=1.4.0
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_license=('Apache-2.0')
 pkg_description="$(cat << EOF
@@ -10,24 +10,29 @@ pkg_description="$(cat << EOF
 EOF
 )"
 pkg_source="https://github.com/google/${pkg_name}/archive/v${pkg_version}.tar.gz"
-pkg_shasum="5ca5491e4260cacae30f1a5786d109230db3f3a6e5a0eb45d0d0608293d247e3"
+pkg_shasum="d3355f0adcc16054afcce4a3eac90b9c26f926be9a65b2e158867f56ab689e63"
 pkg_upstream_url="http://google.github.io/flatbuffers/index.html"
-pkg_deps=(
-)
-pkg_build_deps=(
-  core/cmake
-  core/gcc
-  core/make
-)
-pkg_include_dirs=(include)
-pkg_lib_dirs=(lib64)
 
-do_prepare() {
-  export LD_LIBRARY_PATH
-  LD_LIBRARY_PATH="$(pkg_path_for gcc)/lib"
-}
+pkg_deps=(
+  core/glibc
+  core/gcc-libs
+)
+
+pkg_build_deps=(
+  core/make
+  core/gcc
+  core/cmake
+)
+
+pkg_bin_dirs=(bin)
+pkg_lib_dirs=(lib)
+pkg_include_dirs=(include)
 
 do_build() {
+  export LD_LIBRARY_PATH
+  LD_LIBRARY_PATH="$(pkg_path_for gcc)/lib"
+  build_line "Setting LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+
   cmake -G "Unix Makefiles" \
         -DCMAKE_INSTALL_PREFIX="$pkg_prefix" \
         -DCMAKE_CXX_FLAGS="$CXXFLAGS"

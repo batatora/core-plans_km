@@ -16,7 +16,6 @@ pkg_build_deps=(
   core/gcc
   core/go
   core/diffutils
-  core/patch
   core/which
   core/rsync
 )
@@ -24,10 +23,6 @@ pkg_build_deps=(
 pkg_deps=(
   core/glibc
 )
-
-do_prepare() {
-  patch hack/lib/golang.sh "${PLAN_CONTEXT}/golang_detection.patch"
-}
 
 do_build() {
   make
