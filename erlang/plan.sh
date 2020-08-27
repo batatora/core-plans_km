@@ -29,8 +29,6 @@ do_prepare() {
 }
 
 do_build() {
-  sed -i 's/std_ssl_locations=.*/std_ssl_locations=""/' erts/configure.in
-  sed -i 's/std_ssl_locations=.*/std_ssl_locations=""/' erts/configure
   ./configure --prefix="${pkg_prefix}" \
               --enable-threads \
               --enable-smp-support \
@@ -38,7 +36,7 @@ do_build() {
               --enable-dynamic-ssl-lib \
               --enable-shared-zlib \
               --enable-hipe \
-              --with-ssl="$(pkg_path_for openssl)" \
+              --with-ssl="$(pkg_path_for openssl)/lib" \
               --with-ssl-include="$(pkg_path_for openssl)/include" \
               --without-javac
   make
