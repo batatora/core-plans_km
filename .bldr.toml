@@ -138,8 +138,6 @@ plan_path = "cppunit"
 plan_path = "cpputest"
 [curator]
 plan_path = "curator"
-[curator4]
-plan_path = "curator4"
 [curl]
 plan_path = "curl"
 [curl-static-musl]
@@ -1018,6 +1016,8 @@ plan_path = "socat"
 plan_path = "spark"
 [sqitch]
 plan_path = "sqitch"
+[sqitch_pg]
+plan_path = "sqitch_pg"
 [sqlite]
 plan_path = "sqlite"
 [sshpass]
