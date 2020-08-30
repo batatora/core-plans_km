@@ -12,10 +12,4 @@ Binary package
 
 ## Usage
 
-This is a library usually used at build time, thus you should use it like so in your plans:
-
-```
-pkg_build_deps=(
-    core/boost
-)
-```
+*TODO: Add instructions for usage*
