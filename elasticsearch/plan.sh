@@ -11,7 +11,6 @@ pkg_deps=(
   core/coreutils-static
   core/glibc
   core/jre8
-  core/wget
 )
 pkg_bin_dirs=(es/bin)
 pkg_binds_optional=(
