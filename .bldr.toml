@@ -171,10 +171,6 @@ plan_path = "dep"
 plan_path = "devicemapper"
 [dex]
 plan_path = "dex"
-[dgraph]
-plan_path = "dgraph"
-[dgraph-ratel]
-plan_path = "dgraph-ratel"
 [diffutils]
 plan_path = "diffutils"
 [direnv]
@@ -1010,6 +1006,8 @@ plan_path = "rust-nightly"
 plan_path = "sassc"
 [scaffolding-base]
 plan_path = "scaffolding-base"
+[scaffolding-chef]
+plan_path = "scaffolding-chef"
 [scaffolding-go]
 plan_path = "scaffolding-go"
 [scaffolding-go17]
