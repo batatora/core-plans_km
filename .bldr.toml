@@ -45,8 +45,6 @@ paths = [
 ]
 [bats]
 plan_path = "bats"
-[bazel]
-plan_path = "bazel"
 [bc]
 plan_path = "bc"
 [bdwgc]
@@ -63,10 +61,6 @@ plan_path = "bison"
 plan_path = "bison2"
 [boost]
 plan_path = "boost"
-[boost159]
-plan_path = "boost159"
-[boringssl]
-plan_path = "boringssl"
 [bundler]
 plan_path = "bundler"
 [busybox]
@@ -97,8 +91,6 @@ plan_path = "camlp4"
 plan_path = "cargo-nightly"
 [ccache]
 plan_path = "ccache"
-[cerebro]
-plan_path = "cerebro"
 [certstrap]
 plan_path = "certstrap"
 [check]
@@ -142,8 +134,6 @@ plan_path = "cppunit"
 plan_path = "cpputest"
 [curator]
 plan_path = "curator"
-[curator4]
-plan_path = "curator4"
 [curl]
 plan_path = "curl"
 [curl-static-musl]
@@ -221,8 +211,6 @@ plan_path = "elixir"
 plan_path = "envconsul"
 [envdir]
 plan_path = "envdir"
-[envoy]
-plan_path = "envoy"
 [erlang]
 plan_path = "erlang"
 [erlang16]
@@ -386,8 +374,6 @@ plan_path = "helm"
 plan_path = "htop"
 [httpd]
 plan_path = "httpd"
-[hugo]
-plan_path = "hugo"
 [hwloc]
 plan_path = "hwloc"
 [iana-etc]
@@ -678,8 +664,6 @@ plan_path = "lsyncd"
 plan_path = "lttng-ust"
 [lua]
 plan_path = "lua"
-[luajit]
-plan_path = "luajit"
 [lynx]
 plan_path = "lynx"
 [lz4]
@@ -858,40 +842,20 @@ plan_path = "popt"
 plan_path = "postfix"
 [postgresql]
 plan_path = "postgresql"
-[postgresql-client]
-plan_path = "postgresql"
 [postgresql93]
 plan_path = "postgresql93"
 paths = [
   "postgresql/*",
-]
-[postgresql93-client]
-plan_path = "postgresql93-client"
-paths = [
-  "postgresql93/*",
-  "postgresql93-client/*",
 ]
 [postgresql94]
 plan_path = "postgresql94"
 paths = [
   "postgresql/*",
 ]
-[postgresql94-client]
-plan_path = "postgresql94-client"
-paths = [
-  "postgresql94/*",
-  "postgresql94-client/*"
-]
 [postgresql95]
 plan_path = "postgresql95"
 paths = [
   "postgresql/*",
-]
-[postgresql95-client]
-plan_path = "postgresql95-client"
-paths = [
-  "postgresql95/*",
-  "postgresql95-client/*"
 ]
 [powershell]
 plan_path = "powershell"
@@ -1046,8 +1010,6 @@ plan_path = "socat"
 plan_path = "spark"
 [sqitch]
 plan_path = "sqitch"
-[sqitch_pg]
-plan_path = "sqitch_pg"
 [sqlite]
 plan_path = "sqlite"
 [sshpass]
@@ -1162,8 +1124,6 @@ plan_path = "xz-musl"
 paths = [
   "xz/*",
 ]
-[yaml-cpp]
-plan_path = "yaml-cpp"
 [yarn]
 plan_path = "yarn"
 [yasm]

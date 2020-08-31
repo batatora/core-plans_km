@@ -54,7 +54,7 @@ do_build() {
     -DCMAKE_BUILD_TYPE=Release \
     -G "Unix Makefiles" \
     ../
-  make -j"$(nproc)"
+  make
 }
 
 do_check() {
