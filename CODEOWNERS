@@ -114,6 +114,7 @@ acbuild @rsertelon
 artifactory-pro @defilan
 atk @rsertelon
 cairo @rsertelon
+cerebro @predominant
 concourse @echohack
 concourse-fly @echohack
 consul @defilan
@@ -131,6 +132,7 @@ go @afiune @nellshamrell
 grpcurl @afiune
 gtk2 @rsertelon
 harfbuzz @rsertelon
+hugo @tduffield @cnunciato
 innounp @mwrock
 jdk7 @predominant @rsertelon
 jdk8 @predominant @rsertelon
@@ -152,8 +154,11 @@ protobuf-cpp @afiune
 rabbitmqadmin @predominant
 redis @irvingpop
 shared-mime-info @rsertelon
+sqitch @irvingpop
+sqitch_pg @irvingpop
 sqlserver @mwrock
 sqlserver-ha-ag @mwrock
+terraform @defilan @echohack
 vault @defilan
 visual-build-tools-2017 @mwrock
 wrk @afiune
