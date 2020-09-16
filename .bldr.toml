@@ -720,6 +720,8 @@ plan_path = "meson"
 plan_path = "mg"
 [minio]
 plan_path = "minio"
+[mksh]
+plan_path = "mksh"
 [monit]
 plan_path = "monit"
 paths = [
@@ -822,8 +824,6 @@ paths = [
 plan_path = "openvpn"
 [p11-kit]
 plan_path = "p11-kit"
-[p4broker]
-plan_path = "p4broker"
 [packer]
 plan_path = "packer"
 [pango]
@@ -1008,6 +1008,8 @@ plan_path = "rust-nightly"
 plan_path = "sassc"
 [scaffolding-base]
 plan_path = "scaffolding-base"
+[scaffolding-chef]
+plan_path = "scaffolding-chef"
 [scaffolding-go]
 plan_path = "scaffolding-go"
 [scaffolding-go17]
