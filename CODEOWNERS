@@ -143,7 +143,6 @@ jre8 @predominant @rsertelon
 jre9 @predominant @rsertelon
 kibana @joshbrand @predominant
 logstash @joshbrand @predominant
-libimagequant @predominant
 libtalloc @defilan
 monit @rsertelon
 mosquitto @rsertelon
@@ -151,6 +150,7 @@ mssql @mwrock
 nmap @defilan
 nuget @mwrock
 pango @rsertelon
+pngquant @predominant
 protobuf-cpp @afiune
 rabbitmqadmin @predominant
 redis @irvingpop
