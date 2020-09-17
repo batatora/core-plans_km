@@ -12,4 +12,4 @@ Binary package
 
 ## Usage
 
-This package can be included in `pkg_deps` or `pkg_build_deps` as a dependency of your application.
+*TODO: Add instructions for usage*
