@@ -171,6 +171,10 @@ plan_path = "dep"
 plan_path = "devicemapper"
 [dex]
 plan_path = "dex"
+[dgraph]
+plan_path = "dgraph"
+[dgraph-ratel]
+plan_path = "dgraph-ratel"
 [diffutils]
 plan_path = "diffutils"
 [direnv]
@@ -245,6 +249,8 @@ plan_path = "expect"
 plan_path = "ffmpeg"
 [file]
 plan_path = "file"
+[filebeat]
+plan_path = "filebeat"
 [findutils]
 plan_path = "findutils"
 [fish]
@@ -520,6 +526,8 @@ plan_path = "libcap-ng"
 plan_path = "libcerf"
 [libcxx]
 plan_path = "libcxx"
+[libcxxabi]
+plan_path = "libcxxabi"
 [libdrm]
 plan_path = "libdrm"
 [libedit]
@@ -532,6 +540,8 @@ plan_path = "liberation-fonts-ttf"
 plan_path = "libev"
 [libevent]
 plan_path = "libevent"
+[libfcgi]
+plan_path = "libfcgi"
 [libffi]
 plan_path = "libffi"
 [libgcrypt]
@@ -550,12 +560,16 @@ plan_path = "libiconv"
 plan_path = "libidn"
 [libidn2]
 plan_path = "libidn2"
+[libimagequant]
+plan_path = "libimagequant"
 [libjpeg-turbo]
 plan_path = "libjpeg-turbo"
 [libksba]
 plan_path = "libksba"
 [libmpc]
 plan_path = "libmpc"
+[libnsl]
+plan_path = "libnsl"
 [libossp-uuid]
 plan_path = "libossp-uuid"
 [libpcap]
@@ -600,6 +614,8 @@ plan_path = "libtasn1"
 plan_path = "libtermkey"
 [libtiff]
 plan_path = "libtiff"
+[libtirpc]
+plan_path = "libtirpc"
 [libtool]
 plan_path = "libtool"
 [libunistring]
@@ -749,6 +765,8 @@ plan_path = "musl"
 plan_path = "mysql"
 [mysql-client]
 plan_path = "mysql-client"
+[nano]
+plan_path = "nano"
 [nasm]
 plan_path = "nasm"
 [nats-streaming-server]
@@ -779,6 +797,11 @@ plan_path = "nmap"
 plan_path = "node"
 [node6]
 plan_path = "node6"
+paths = [
+  "node/*",
+]
+[node8]
+plan_path = "node8"
 paths = [
   "node/*",
 ]
@@ -822,6 +845,8 @@ paths = [
 ]
 [openvpn]
 plan_path = "openvpn"
+[optipng]
+plan_path = "optipng"
 [p11-kit]
 plan_path = "p11-kit"
 [packer]
@@ -852,6 +877,8 @@ plan_path = "php5"
 plan_path = "pixman"
 [pkg-config]
 plan_path = "pkg-config"
+[pngquant]
+plan_path = "pngquant"
 [polipo]
 plan_path = "polipo"
 [ponysay]
@@ -939,6 +966,11 @@ randrproto = "randrproto"
 plan_path = "re2c"
 [readline]
 plan_path = "readline"
+[readline6]
+plan_path = "readline6"
+paths = [
+  "readline/*",
+]
 [rebar]
 plan_path = "rebar"
 [rebar3]
