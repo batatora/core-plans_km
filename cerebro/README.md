@@ -1,6 +1,6 @@
 # cerebro
 
-Simple [Cerebro][1] installation.
+Simple Cerebro installation.
 
 ## Maintainers
 
@@ -36,6 +36,4 @@ Recommended update strategy is `at-once`.
 
 ## Notes
 
-[Cerebro Github][1]
-
-[1]: https://github.com/lmenezes/cerebro
+[Cerebro Github](https://github.com/lmenezes/cerebro)

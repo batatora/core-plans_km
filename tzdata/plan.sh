@@ -1,11 +1,11 @@
 pkg_name=tzdata
 pkg_origin=core
-pkg_version=2018e
+pkg_version=2016i
 pkg_description="Sources for time zone and daylight saving time data"
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_license=('gpl')
-pkg_source=https://www.iana.org/time-zones/repository/releases/${pkg_name}${pkg_version}.tar.gz
-pkg_shasum=6b288e5926841a4cb490909fe822d85c36ae75538ad69baf20da9628b63b692e
+pkg_source=http://www.iana.org/time-zones/repository/releases/${pkg_name}${pkg_version}.tar.gz
+pkg_shasum=b6966ec982ef64fe48cebec437096b4f57f4287519ed32dde59c86d3a1853845
 pkg_upstream_url=http://www.iana.org/time-zones
 
 timezones=(
