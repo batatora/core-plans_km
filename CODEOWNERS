@@ -153,6 +153,8 @@ nmap @defilan
 nuget @mwrock
 optipng @predominant
 pango @rsertelon
+pngquant @predominant
+postgresql-client @joshbrand @irvingpop
 protobuf-cpp @afiune
 rabbitmqadmin @predominant
 redis @irvingpop
