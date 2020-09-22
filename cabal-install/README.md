@@ -1,6 +1,6 @@
-# shellcheck
+# cabal-install
 
-ShellCheck is a GPLv3 tool that gives warnings and suggestions for bash/sh shell scripts.
+Command-line interface for Cabal and Hackage.
 
 ## Maintainers
 
