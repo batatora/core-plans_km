@@ -1,7 +1,5 @@
 # libgcrypt
 
-Libgcrypt is a general purpose cryptographic library originally based on code from GnuPG.
-
 ## Maintainers
 
 * The Habitat Maintainers: <humans@habitat.sh>
