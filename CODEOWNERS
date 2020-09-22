@@ -130,6 +130,7 @@ filebeat @predominant
 gdk-pixbuf @rsertelon
 glib @rsertelon
 go @afiune @nellshamrell
+gocd-server @predominant
 grpcurl @afiune
 gtk2 @rsertelon
 harfbuzz @rsertelon
@@ -149,10 +150,13 @@ libtalloc @defilan
 monit @rsertelon
 mosquitto @rsertelon
 mssql @mwrock
+nano @predominant
 nmap @defilan
 nuget @mwrock
 optipng @predominant
 pango @rsertelon
+pngquant @predominant
+postgresql-client @joshbrand @irvingpop
 protobuf-cpp @afiune
 rabbitmqadmin @predominant
 redis @irvingpop
