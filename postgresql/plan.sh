@@ -1,13 +1,12 @@
-# shellcheck disable=SC2164
 pkg_name=postgresql
-pkg_version=9.6.9
+pkg_version=9.6.8
 pkg_origin=core
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_description="PostgreSQL is a powerful, open source object-relational database system."
 pkg_upstream_url="https://www.postgresql.org/"
 pkg_license=('PostgreSQL')
 pkg_source="https://ftp.postgresql.org/pub/source/v${pkg_version}/${pkg_name}-${pkg_version}.tar.bz2"
-pkg_shasum="b97952e3af02dc1e446f9c4188ff53021cc0eed7ed96f254ae6daf968c443e2e"
+pkg_shasum="eafdb3b912e9ec34bdd28b651d00226a6253ba65036cb9a41cad2d9e82e3eb70"
 
 pkg_deps=(
   core/bash
@@ -113,26 +112,4 @@ do_install() {
   make install
 
   popd > /dev/null
-}
-
-# Postgresql9X plans source this plan to get build instructions.
-#  This helper method allows those plans to copy hooks and config
-#  from this plan.
-#  This should be run in do_begin()
-_copy_service_files() {
-  build_line "Copying hooks"
-  cp -a "${PLAN_CONTEXT}/../postgresql/hooks" "${PLAN_CONTEXT}/"
-  build_line "Copying config"
-  cp -a "${PLAN_CONTEXT}/../postgresql/config" "${PLAN_CONTEXT}/"
-  build_line "Copying default.toml"
-  cp -a "${PLAN_CONTEXT}/../postgresql/default.toml" "${PLAN_CONTEXT}/"
-}
-
-# Cleanup from the above function.
-# This should be run in do_end()
-_cleanup_copied_service_files() {
-  build_line "Removing copied files"
-  rm -rf "${PLAN_CONTEXT:?}/config"
-  rm -rf "${PLAN_CONTEXT:?}/hooks"
-  rm -f "${PLAN_CONTEXT:?}/default.toml"
 }
