@@ -273,6 +273,8 @@ plan_path = "fontconfig"
 plan_path = "foulkon"
 [fping]
 plan_path = "fping"
+[freetds]
+plan_path = "freetds"
 [freetype]
 plan_path = "freetype"
 [galera]
@@ -1187,8 +1189,6 @@ plan_path = "ttyrec"
 plan_path = "tzdata"
 [unibilium]
 plan_path = "unibilium"
-[unixodbc]
-plan_path = "unixodbc"
 [unzip]
 plan_path = "unzip"
 [userspace-rcu]
