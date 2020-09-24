@@ -4,6 +4,8 @@ plan_path = "7zip"
 plan_path = "acbuild"
 [acl]
 plan_path = "acl"
+[alex]
+plan_path = "alex"
 [alsa-lib]
 plan_path = "alsa-lib"
 [ant]
@@ -85,6 +87,8 @@ paths = [
 ]
 [c-ares]
 plan_path = "c-ares"
+[cabal-install]
+plan_path = "cabal-install"
 [cacerts]
 plan_path = "cacerts"
 [caddy]
@@ -269,6 +273,8 @@ plan_path = "fontconfig"
 plan_path = "foulkon"
 [fping]
 plan_path = "fping"
+[freetds]
+plan_path = "freetds"
 [freetype]
 plan_path = "freetype"
 [galera]
@@ -302,6 +308,32 @@ plan_path = "geoip"
 plan_path = "geos"
 [gettext]
 plan_path = "gettext"
+[ghc]
+plan_path = "ghc"
+[ghc710]
+plan_path = "ghc710"
+paths = [
+  "ghc/*",
+]
+[ghc710-bootstrap]
+plan_path = "ghc710-bootstrap"
+[ghc80]
+plan_path = "ghc80"
+paths = [
+  "ghc/*",
+]
+[ghc82-bootstrap]
+plan_path = "ghc82-bootstrap"
+[ghc82]
+plan_path = "ghc82"
+paths = [
+  "ghc/*",
+]
+[ghc84]
+plan_path = "ghc84"
+paths = [
+  "ghc/*",
+]
 [giflib]
 plan_path = "giflib"
 [gifsicle]
@@ -340,6 +372,8 @@ plan_path = "go"
 plan_path = "go14"
 [go17]
 plan_path = "go17"
+[gocd-server]
+plan_path = "gocd-server"
 [googlemock]
 plan_path = "googlemock"
 [googletest]
@@ -382,6 +416,8 @@ plan_path = "guile"
 plan_path = "gzip"
 [handlebars-cmd]
 plan_path = "handlebars-cmd"
+[happy]
+plan_path = "happy"
 [haproxy]
 plan_path = "haproxy"
 [harfbuzz]
@@ -757,6 +793,8 @@ plan_path = "mosquitto"
 plan_path = "mpfr"
 [msgpack]
 plan_path = "msgpack"
+[msodbcsql17]
+plan_path = "msodbcsql17"
 [mssql]
 plan_path = "mssql"
 [musl]
@@ -777,12 +815,19 @@ plan_path = "nats-top"
 plan_path = "ncdu"
 [ncurses]
 plan_path = "ncurses"
+[ncurses5]
+plan_path = "ncurses5"
+paths = [
+  "ncurses/*",
+]
 [net-tools]
 plan_path = "net-tools"
 [netcat]
 plan_path = "netcat"
 [netcat-openbsd]
 plan_path = "netcat-openbsd"
+[netdata]
+plan_path = "netdata"
 [nettle]
 plan_path = "nettle"
 [nghttp2]
@@ -849,6 +894,8 @@ plan_path = "openvpn"
 plan_path = "optipng"
 [p11-kit]
 plan_path = "p11-kit"
+[p4broker]
+plan_path = "p4broker"
 [packer]
 plan_path = "packer"
 [pango]
@@ -890,7 +937,10 @@ plan_path = "postfix"
 [postgresql]
 plan_path = "postgresql"
 [postgresql-client]
-plan_path = "postgresql"
+plan_path = "postgresql-client"
+paths = [
+  "postgresql/*",
+]
 [postgresql93]
 plan_path = "postgresql93"
 paths = [
@@ -899,8 +949,8 @@ paths = [
 [postgresql93-client]
 plan_path = "postgresql93-client"
 paths = [
+  "postgresql/*",
   "postgresql93/*",
-  "postgresql93-client/*",
 ]
 [postgresql94]
 plan_path = "postgresql94"
@@ -910,8 +960,8 @@ paths = [
 [postgresql94-client]
 plan_path = "postgresql94-client"
 paths = [
+  "postgresql/*",
   "postgresql94/*",
-  "postgresql94-client/*"
 ]
 [postgresql95]
 plan_path = "postgresql95"
@@ -921,8 +971,19 @@ paths = [
 [postgresql95-client]
 plan_path = "postgresql95-client"
 paths = [
+  "postgresql/*",
   "postgresql95/*",
-  "postgresql95-client/*"
+]
+[postgresql96]
+plan_path = "postgresql96"
+paths = [
+  "postgresql/*",
+]
+[postgresql96-client]
+plan_path = "postgresql96-client"
+paths = [
+  "postgresql/*",
+  "postgresql96/*",
 ]
 [powershell]
 plan_path = "powershell"
@@ -950,6 +1011,29 @@ plan_path = "pv"
 plan_path = "python"
 [python2]
 plan_path = "python2"
+paths = [
+  "python/*"
+]
+[python34]
+plan_path = "python34"
+paths = [
+  "python/*"
+]
+[python35]
+plan_path = "python35"
+paths = [
+  "python/*"
+]
+[python36]
+plan_path = "python36"
+paths = [
+  "python/*"
+]
+[python37]
+plan_path = "python37"
+paths = [
+  "python/*"
+]
 [qemu]
 plan_path = "qemu"
 [R]
@@ -1064,12 +1148,18 @@ plan_path = "scrnsaverproto"
 plan_path = "sed"
 [sensu]
 plan_path = "sensu"
+[sensu-backend]
+plan_path = "sensu-backend"
+[sensu-agent]
+plan_path = "sensu-agent"
 [serf]
 plan_path = "serf"
 [shadow]
 plan_path = "shadow"
 [shared-mime-info]
 plan_path = "shared-mime-info"
+[shellcheck]
+plan_path = "shellcheck"
 [shield]
 plan_path = "shield"
 [shield-agent]
@@ -1142,6 +1232,8 @@ plan_path = "ttyrec"
 plan_path = "tzdata"
 [unibilium]
 plan_path = "unibilium"
+[unixodbc]
+plan_path = "unixodbc"
 [unzip]
 plan_path = "unzip"
 [userspace-rcu]
