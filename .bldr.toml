@@ -793,6 +793,8 @@ plan_path = "mosquitto"
 plan_path = "mpfr"
 [msgpack]
 plan_path = "msgpack"
+[msodbcsql17]
+plan_path = "msodbcsql17"
 [mssql]
 plan_path = "mssql"
 [musl]
@@ -1123,10 +1125,6 @@ plan_path = "scrnsaverproto"
 plan_path = "sed"
 [sensu]
 plan_path = "sensu"
-[sensu-backend]
-plan_path = "sensu-backend"
-[sensu-agent]
-plan_path = "sensu-agent"
 [serf]
 plan_path = "serf"
 [shadow]
