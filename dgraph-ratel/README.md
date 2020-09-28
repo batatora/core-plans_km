@@ -1,4 +1,6 @@
-# protobuf
+# Dgraph-ratel
+
+Dgraph is a distributed, transactiona, graph database written in go. This is the UI server for its visualizations
 
 ## Maintainers
 
