@@ -1129,8 +1129,6 @@ plan_path = "rust"
 plan_path = "rust-nightly"
 [sassc]
 plan_path = "sassc"
-[sbt]
-plan_path = "sbt"
 [scaffolding-base]
 plan_path = "scaffolding-base"
 [scaffolding-chef]
