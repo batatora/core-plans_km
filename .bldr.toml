@@ -533,6 +533,8 @@ paths = [
 plan_path = "lcms2"
 [leiningen]
 plan_path = "leiningen"
+[leproxy]
+plan_path = "leproxy"
 [leptonica]
 plan_path = "leptonica"
 [less]
@@ -1129,8 +1131,6 @@ plan_path = "rust"
 plan_path = "rust-nightly"
 [sassc]
 plan_path = "sassc"
-[sbt]
-plan_path = "sbt"
 [scaffolding-base]
 plan_path = "scaffolding-base"
 [scaffolding-chef]
