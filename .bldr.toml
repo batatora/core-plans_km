@@ -1070,6 +1070,16 @@ plan_path = "rebar3"
 plan_path = "recordproto"
 [redis]
 plan_path = "redis"
+[redis3]
+plan_path = "redis3"
+paths = [
+  "redis/*",
+]
+[redis4]
+plan_path = "redis4"
+paths = [
+  "redis/*",
+]
 [relx]
 plan_path = "relx"
 [renderproto]
@@ -1129,6 +1139,8 @@ plan_path = "rust"
 plan_path = "rust-nightly"
 [sassc]
 plan_path = "sassc"
+[sbt]
+plan_path = "sbt"
 [scaffolding-base]
 plan_path = "scaffolding-base"
 [scaffolding-chef]
