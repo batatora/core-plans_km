@@ -8,7 +8,6 @@ hab pkg install core/busybox-static
 hab pkg binlink core/busybox-static ps
 hab pkg binlink core/busybox-static netstat
 hab pkg binlink core/busybox-static wc
-hab pkg binlink core/busybox-static uniq
 
 source ./plan.sh
 
