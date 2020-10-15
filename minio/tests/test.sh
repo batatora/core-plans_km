@@ -11,7 +11,7 @@ hab pkg install core/busybox-static
 hab pkg binlink core/busybox-static ps
 hab pkg binlink core/busybox-static netstat
 hab pkg binlink core/busybox-static wc
-set -x
+
 source "${PLANDIR}/plan.sh"
 
 if [ "${SKIPBUILD}" -eq 0 ]; then
@@ -28,4 +28,4 @@ if [ "${SKIPBUILD}" -eq 0 ]; then
   sleep 5
 fi
 
-bats "${TESTDIR}"
+bats "${TESTDIR}/test.bats"
