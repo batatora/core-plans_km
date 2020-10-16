@@ -1,4 +1,4 @@
-source "${BATS_TEST_DIRNAME}/../plan.sh"
+source ./plan.sh
 
 @test "Version matches" {
   result="$(terraform version | head -1 | awk '{print $2}')"
