@@ -14,7 +14,6 @@ if [ "${SKIPBUILD}" -eq 0 ]; then
   build
   source results/last_build.env
   hab pkg install --binlink --force "results/${pkg_artifact}"
-  hab pkg install --binlink --force core/node
   popd > /dev/null
   set +e
 fi
