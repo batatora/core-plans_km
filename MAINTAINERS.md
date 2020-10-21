@@ -35,7 +35,6 @@ To become a maintainer, open a pull request to this list.
 * [Graham Weldon](https://github.com/predominant)
 * [W. Duncan Fraser](https://github.com/wduncanfraser)
 * [David Echols](https://github.com/echohack)
-* [Ben Dang](https://github.com/bdangit)
 
 ## Alumni
 
