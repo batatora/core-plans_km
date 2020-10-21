@@ -374,8 +374,6 @@ plan_path = "go14"
 plan_path = "go17"
 [gocd-server]
 plan_path = "gocd-server"
-[googlemock]
-plan_path = "googlemock"
 [googletest]
 plan_path = "googletest"
 [goreplay]
@@ -629,6 +627,8 @@ plan_path = "libressl-musl"
 paths = [
   "libressl/*",
 ]
+[libsasl2]
+plan_path = "libsasl2"
 [libscrypt]
 plan_path = "libscrypt"
 [libseccomp]
@@ -933,6 +933,8 @@ plan_path = "php5"
 plan_path = "pixman"
 [pkg-config]
 plan_path = "pkg-config"
+[pngcrush]
+plan_path = "pngcrush"
 [pngquant]
 plan_path = "pngquant"
 [polipo]
