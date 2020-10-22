@@ -1,11 +1,11 @@
 source "${BATS_TEST_DIRNAME}/../plan.sh"
 
 @test "Version matches" {
-  result="$(elixir --version | tail -1 | awk '{print $2}')"
+  result="$(pngcrush --version 2>&1 | head -1 | awk -F' |,' '{print $3}')"
   [ "$result" = "${pkg_version}" ]
 }
 
-@test "Trivial Elixir code tests" {
-  run elixir -e "is_atom :ok"
+@test "Help command" {
+  run pngcrush --help
   [ $status -eq 0 ]
 }

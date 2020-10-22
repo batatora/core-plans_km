@@ -18,6 +18,4 @@ if [ "${SKIPBUILD}" -eq 0 ]; then
   set +e
 fi
 
-hab pkg install --binlink core/erlang
-
 bats "${TESTDIR}/test.bats"
