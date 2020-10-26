@@ -140,8 +140,6 @@ paths = [
 plan_path = "cpanminus"
 [cpio]
 plan_path = "cpio"
-[cppcheck]
-plan_path = "cppcheck"
 [cppunit]
 plan_path = "cppunit"
 [cpputest]
@@ -197,8 +195,6 @@ plan_path = "docker-compose"
 plan_path = "docutils"
 [dosfstools]
 plan_path = "dosfstools"
-[dotnet-asp-core]
-path_plan = "dotnet-asp-core"
 [dotnet-core]
 plan_path = "dotnet-core"
 [dotnet-core-lts]
