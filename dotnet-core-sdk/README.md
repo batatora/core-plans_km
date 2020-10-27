@@ -12,10 +12,6 @@
 
 Binary package
 
-## Testing
+## Usage
 
-To test the Linux package, log into the Habitat Studio and run:
-
-```
-./tests/test.sh
-```
+*TODO: Add instructions for usage*
