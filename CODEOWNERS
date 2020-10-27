@@ -123,7 +123,6 @@ concourse-fly @echohack
 consul @defilan
 dep @afiune @nellshamrell
 dotnet-47-dev-pack @mwrock
-dotnet-asp-core @defilan
 dotnet-core-lts @mwrock
 dotnet-core-sdk-lts @mwrock
 dotnet-core-sdk-preview @mwrock
@@ -160,7 +159,6 @@ kibana @joshbrand @predominant
 logstash @joshbrand @predominant
 libimagequant @predominant
 libtalloc @defilan
-mage @predominant
 monit @rsertelon
 mosquitto @rsertelon
 mssql @mwrock
