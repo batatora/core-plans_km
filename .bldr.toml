@@ -16,8 +16,6 @@ plan_path = "ansible"
 plan_path = "apr"
 [apr-util]
 plan_path = "apr-util"
-[artifactory]
-plan_path = "artifactory"
 [artifactory-pro]
 plan_path = "artifactory-pro"
 [aspcud]
