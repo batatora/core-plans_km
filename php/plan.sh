@@ -10,25 +10,20 @@ pkg_filename="${pkg_name}-${pkg_version}.tar.xz"
 pkg_dirname="${pkg_name}-${pkg_version}"
 pkg_shasum=53ba0708be8a7db44256e3ae9fcecc91b811e5b5119e6080c951ffe7910ffb0f
 pkg_deps=(
-  core/bzip2
   core/coreutils
   core/curl
   core/glibc
-  core/icu
+  core/libxml2
   core/libjpeg-turbo
   core/libpng
-  core/libxml2
-  core/libzip
   core/openssl
   core/readline
-  core/zip
   core/zlib
 )
 pkg_build_deps=(
   core/autoconf
   core/bison2
   core/gcc
-  core/libgd
   core/make
   core/re2c
 )
@@ -38,17 +33,14 @@ pkg_include_dirs=(include)
 pkg_interpreters=(bin/php)
 
 do_build() {
-  # The configuration scripts unset LD_RUN_PATH when testing linking for configured options,
-  # so the resulting 'conftest' binaries cannot run due to being unable to find libstdc++.so
-  # This allows those binaries to execute while limiting the scope of LD_LIBRARY_PATH
-  # to the execution of `./configure`.
-  LD_LIBRARY_PATH="$(pkg_path_for gcc)/lib" ./configure --prefix="${pkg_prefix}" \
+  ./configure --prefix="${pkg_prefix}" \
     --enable-exif \
     --enable-fpm \
     --with-fpm-user=hab \
     --with-fpm-group=hab \
     --enable-mbstring \
     --enable-opcache \
+    --with-mysql=mysqlnd \
     --with-mysqli=mysqlnd \
     --with-pdo-mysql=mysqlnd \
     --with-readline="$(pkg_path_for readline)" \
@@ -59,13 +51,8 @@ do_build() {
     --with-openssl="$(pkg_path_for openssl)" \
     --with-png-dir="$(pkg_path_for libpng)" \
     --with-xmlrpc \
-    --with-zlib="$(pkg_path_for zlib)" \
-    --enable-zip \
-    --with-libzip="$(pkg_path_for libzip)" \
-    --with-bz2="$(pkg_path_for bzip2)" \
-    --enable-intl
-
-  make -j "$(nproc)"
+    --with-zlib="$(pkg_path_for zlib)"
+  make
 }
 
 do_install() {
