@@ -732,6 +732,8 @@ plan_path = "libxtst"
 plan_path = "libyajl2"
 [libyaml]
 plan_path = "libyaml"
+[libzip]
+plan_path = "libzip"
 [linux]
 plan_path = "linux"
 [linux-headers]
@@ -742,6 +744,16 @@ plan_path = "linux-headers-musl"
 plan_path = "linux-pam"
 [llvm]
 plan_path = "llvm"
+[llvm5]
+plan_path = "llvm5"
+paths = [
+  "llvm/*"
+]
+[llvm7]
+plan_path = "llvm7"
+paths = [
+  "llvm/*"
+]
 [local-lib]
 plan_path = "local-lib"
 [logback]
@@ -1030,6 +1042,16 @@ plan_path = "procps-ng"
 plan_path = "proj"
 [prometheus]
 plan_path = "prometheus"
+[prometheus1]
+plan_path = "prometheus1"
+paths = [
+  "prometheus/*"
+]
+[prometheus2]
+plan_path = "prometheus2"
+paths = [
+  "prometheus/*"
+]
 [prometheus-cpp]
 plan_path = "prometheus-cpp"
 [protobuf]
