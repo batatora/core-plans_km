@@ -9,8 +9,6 @@ hab pkg install --binlink core/bats
 hab pkg install core/busybox-static
 hab pkg binlink core/busybox-static ps
 hab pkg binlink core/busybox-static netstat
-hab pkg binlink core/busybox-static wc
-hab pkg binlink core/busybox-static uniq
 
 source "${PLANDIR}/plan.sh"
 
@@ -28,7 +26,7 @@ if [ "${SKIPBUILD}" -eq 0 ]; then
   set +e
 
   # Give some time for the service to start up
-  sleep 3
+  sleep 6
 fi
 
 bats "${TESTDIR}/test.bats"
