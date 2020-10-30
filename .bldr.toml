@@ -918,8 +918,6 @@ plan_path = "ocaml"
 plan_path = "ocamlbuild"
 [omniORB]
 plan_path = "omniORB"
-[opa]
-plan_path = "opa"
 [opam]
 plan_path = "opam"
 [openjpeg]
