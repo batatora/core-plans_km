@@ -149,7 +149,7 @@ grpcurl @afiune
 gtk2 @rsertelon
 happy @wduncanfraser
 harfbuzz @rsertelon
-hugo @tduffield @cnunciato @predominant
+hugo @tduffield @cnunciato
 innounp @mwrock
 jdk7 @predominant @rsertelon
 jdk8 @predominant @rsertelon
