@@ -10,20 +10,26 @@ pkg_filename="${pkg_name}-${pkg_version}.tar.xz"
 pkg_dirname="${pkg_name}-${pkg_version}"
 pkg_shasum=53ba0708be8a7db44256e3ae9fcecc91b811e5b5119e6080c951ffe7910ffb0f
 pkg_deps=(
+  core/bzip2
   core/coreutils
   core/curl
   core/glibc
-  core/libxml2
+  core/icu
   core/libjpeg-turbo
   core/libpng
+  core/libxml2
+  core/libzip
   core/openssl
   core/readline
+  core/zip
   core/zlib
+  core/gcc-libs
 )
 pkg_build_deps=(
   core/autoconf
   core/bison2
   core/gcc
+  core/libgd
   core/make
   core/re2c
 )
@@ -40,7 +46,6 @@ do_build() {
     --with-fpm-group=hab \
     --enable-mbstring \
     --enable-opcache \
-    --with-mysql=mysqlnd \
     --with-mysqli=mysqlnd \
     --with-pdo-mysql=mysqlnd \
     --with-readline="$(pkg_path_for readline)" \
@@ -51,8 +56,13 @@ do_build() {
     --with-openssl="$(pkg_path_for openssl)" \
     --with-png-dir="$(pkg_path_for libpng)" \
     --with-xmlrpc \
-    --with-zlib="$(pkg_path_for zlib)"
-  make
+    --with-zlib="$(pkg_path_for zlib)" \
+    --enable-zip \
+    --with-libzip="$(pkg_path_for libzip)" \
+    --with-bz2="$(pkg_path_for bzip2)" \
+    --enable-intl
+
+  make -j "$(nproc)"
 }
 
 do_install() {
