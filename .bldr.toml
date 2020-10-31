@@ -111,16 +111,8 @@ plan_path = "certstrap"
 plan_path = "check"
 [clang]
 plan_path = "clang"
-[clang5]
-plan_path = "clang5"
-paths = [
-  "clang/*"
-]
-[clang7]
-plan_path = "clang7"
-paths = [
-  "clang/*"
-]
+[clang-tools-extra]
+plan_path = "clang-tools-extra"
 [clens]
 plan_path = "clens"
 [clingo]
@@ -740,6 +732,8 @@ plan_path = "libxtst"
 plan_path = "libyajl2"
 [libyaml]
 plan_path = "libyaml"
+[libzip]
+plan_path = "libzip"
 [linux]
 plan_path = "linux"
 [linux-headers]
@@ -1038,6 +1032,16 @@ plan_path = "procps-ng"
 plan_path = "proj"
 [prometheus]
 plan_path = "prometheus"
+[prometheus1]
+plan_path = "prometheus1"
+paths = [
+  "prometheus/*"
+]
+[prometheus2]
+plan_path = "prometheus2"
+paths = [
+  "prometheus/*"
+]
 [prometheus-cpp]
 plan_path = "prometheus-cpp"
 [protobuf]
