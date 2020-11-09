@@ -52,8 +52,11 @@ export SSL_CERT_FILE="{{pkgPathFor "core/cacerts"}}/ssl/cert.pem"
 cd {{pkg.path}}
 
 exec 2>&1
+while true; do
 chef-client -z -l {{cfg.log_level}} -c $pkg_svc_config_path/client-config.rb --once
-exec chef-client -z -i {{cfg.interval}} -s {{cfg.splay}} -l {{cfg.log_level}} -c $pkg_svc_config_path/client-config.rb
+sleep {{cfg.interval}}
+sleep {{cfg.splay}}
+done
 EOF
   chown 0755 "$pkg_prefix/hooks/run"
 }
@@ -91,7 +94,7 @@ cache_path "$pkg_svc_data_path/cache"
 node_path "$pkg_svc_data_path/nodes"
 role_path "$pkg_svc_data_path/roles"
 
-ssl_verify_mode :verify_none
+ssl_verify_mode {{cfg.ssl_verify_mode}}
 chef_zero.enabled true
 EOF
 
@@ -117,6 +120,7 @@ interval = 1800
 splay = 180
 log_level = "warn"
 env_path_prefix = "/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin"
+ssl_verify_mode = ":verify_peer"
 
 [data_collector]
 enable = false
