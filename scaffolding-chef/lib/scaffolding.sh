@@ -52,12 +52,8 @@ export SSL_CERT_FILE="{{pkgPathFor "core/cacerts"}}/ssl/cert.pem"
 cd {{pkg.path}}
 
 exec 2>&1
-while true; do
-SPLAY_DURATION=\$({{pkgPathFor "core/coreutils"}}/bin/shuf -i 0-{{cfg.splay}} -n 1)
-sleep \$SPLAY_DURATION
-chef-client -z -l {{cfg.log_level}} -c $pkg_svc_config_path/client-config.rb --once --no-fork --run-lock-timeout {{cfg.run_lock_timeout}}
-sleep {{cfg.interval}}
-done
+chef-client -z -l {{cfg.log_level}} -c $pkg_svc_config_path/client-config.rb --once
+exec chef-client -z -i {{cfg.interval}} -s {{cfg.splay}} -l {{cfg.log_level}} -c $pkg_svc_config_path/client-config.rb
 EOF
   chown 0755 "$pkg_prefix/hooks/run"
 }
@@ -95,7 +91,7 @@ cache_path "$pkg_svc_data_path/cache"
 node_path "$pkg_svc_data_path/nodes"
 role_path "$pkg_svc_data_path/roles"
 
-ssl_verify_mode {{cfg.ssl_verify_mode}}
+ssl_verify_mode :verify_none
 chef_zero.enabled true
 EOF
 
@@ -119,10 +115,8 @@ EOF
   cat << EOF >> "$pkg_prefix/default.toml"
 interval = 1800
 splay = 180
-run_lock_timeout = 1800
 log_level = "warn"
 env_path_prefix = "/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin"
-ssl_verify_mode = ":verify_peer"
 
 [data_collector]
 enable = false
