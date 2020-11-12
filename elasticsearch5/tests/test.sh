@@ -6,9 +6,11 @@ SKIPBUILD=${SKIPBUILD:-0}
 
 hab pkg install --binlink core/bats
 
-hab pkg install core/busybox-static
-hab pkg binlink core/busybox-static ps
-hab pkg binlink core/busybox-static wc
+hab pkg install --binlink core/coreutils-static
+hab pkg install --binlink core/glibc
+hab pkg install --binlink core/jre8
+hab pkg install --binlink core/wget
+hab pkg install --binlink core/busybox-static
 
 source "${PLANDIR}/plan.sh"
 
