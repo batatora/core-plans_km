@@ -47,34 +47,16 @@ do_default_build_service() {
   cat << EOF >> "$pkg_prefix/hooks/run"
 #!/bin/sh
 
-chef_client_cmd()
-{
-  chef-client -z -l {{cfg.log_level}} -c $pkg_svc_config_path/client-config.rb --once --no-fork --run-lock-timeout {{cfg.run_lock_timeout}}
-}
-
-SPLAY_DURATION=\$({{pkgPathFor "core/coreutils"}}/bin/shuf -i 0-{{cfg.splay}} -n 1)
-
 export SSL_CERT_FILE="{{pkgPathFor "core/cacerts"}}/ssl/cert.pem"
 
 cd {{pkg.path}}
 
-# After the first run of the chef-client,
-# export the new package ident so that
-# other software can bind to it.
-# For example, this is useful for InSpec
-# to execute its run hook immediately after
-# the chef-client run has finished.
-
 exec 2>&1
-sleep \$SPLAY_DURATION
-chef_client_cmd
-echo "chef_client_ident = \"{{pkg.ident}}\"" | hab config apply {{svc.service}}.{{svc.group}} $(date +'%s')
-
 while true; do
-
+SPLAY_DURATION=\$({{pkgPathFor "core/coreutils"}}/bin/shuf -i 0-{{cfg.splay}} -n 1)
 sleep \$SPLAY_DURATION
+chef-client -z -l {{cfg.log_level}} -c $pkg_svc_config_path/client-config.rb --once --no-fork --run-lock-timeout {{cfg.run_lock_timeout}}
 sleep {{cfg.interval}}
-chef_client_cmd
 done
 EOF
   chown 0755 "$pkg_prefix/hooks/run"
@@ -139,7 +121,6 @@ interval = 1800
 splay = 180
 run_lock_timeout = 1800
 log_level = "warn"
-chef_client_ident = "" # this is blank by default so it can be populated from the bind
 env_path_prefix = "/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin"
 ssl_verify_mode = ":verify_peer"
 
