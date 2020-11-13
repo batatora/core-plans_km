@@ -4,6 +4,14 @@ TESTDIR="$(dirname "${0}")"
 PLANDIR="$(dirname "${TESTDIR}")"
 SKIPBUILD=${SKIPBUILD:-0}
 
+hab pkg install --binlink core/bats
+
+hab pkg install --binlink core/jre8
+
+hab pkg install core/busybox-static
+hab pkg binlink core/busybox-static ps
+hab pkg binlink core/busybox-static wc
+
 source "${PLANDIR}/plan.sh"
 
 if [ "${SKIPBUILD}" -eq 0 ]; then
@@ -20,18 +28,7 @@ if [ "${SKIPBUILD}" -eq 0 ]; then
   set +e
 
   # Give some time for the service to start up
-  local _seconds=20
-  echo "Waiting for ${pkg_name} to start up (${_seconds} seconds)"
-  sleep ${_seconds}
+  sleep 5
 fi
-
-hab pkg install --binlink core/coreutils-static
-hab pkg install --binlink core/glibc
-hab pkg install --binlink core/jre8
-hab pkg install --binlink core/wget
-hab pkg install --binlink core/curl
-hab pkg install --binlink core/busybox-static
-
-hab pkg install --binlink core/bats
 
 bats "${TESTDIR}/test.bats"
