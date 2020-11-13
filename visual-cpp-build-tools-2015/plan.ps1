@@ -56,5 +56,4 @@ function Invoke-Install {
   }
 
   Copy-Item "$pkg_prefix\Program Files\Microsoft Visual Studio 14.0\Common7\IDE\FromGAC\*" "$pkg_prefix\Program Files\MSBuild\14.0\bin\amd64" -Force
-  Copy-Item "$PLAN_CONTEXT/setenv.ps1" "$pkg_prefix"
 }

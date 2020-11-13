@@ -109,18 +109,12 @@ plan_path = "cerebro"
 plan_path = "certstrap"
 [check]
 plan_path = "check"
+[chrony]
+plan_path = "chrony"
 [clang]
 plan_path = "clang"
-[clang5]
-plan_path = "clang5"
-paths = [
-  "clang/*"
-]
-[clang7]
-plan_path = "clang7"
-paths = [
-  "clang/*"
-]
+[clang-tools-extra]
+plan_path = "clang-tools-extra"
 [clens]
 plan_path = "clens"
 [clingo]
@@ -907,11 +901,6 @@ paths = [
 ]
 [node10]
 plan_path = "node10"
-paths = [
-  "node/*",
-]
-[node11]
-plan_path = "node11"
 paths = [
   "node/*",
 ]
