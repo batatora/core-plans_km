@@ -1,6 +1,4 @@
-# geoip
-
-GeoIP Legacy C API
+# libcap
 
 ## Maintainers
 
