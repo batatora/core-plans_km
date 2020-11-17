@@ -1161,8 +1161,6 @@ plan_path = "relx"
 plan_path = "renderproto"
 [repo]
 plan_path = "repo"
-[restic]
-plan_path = "restic"
 [rethinkdb]
 plan_path = "rethinkdb"
 [ripgrep]
