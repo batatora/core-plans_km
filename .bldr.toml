@@ -395,6 +395,8 @@ plan_path = "go"
 plan_path = "go14"
 [go17]
 plan_path = "go17"
+[goaccess]
+plan_path = "goaccess"
 [gocd-server]
 plan_path = "gocd-server"
 [googletest]
@@ -888,6 +890,8 @@ plan_path = "nghttp2"
 plan_path = "nginx"
 [ninja]
 plan_path = "ninja"
+[nload]
+plan_path = "nload"
 [nmap]
 plan_path = "nmap"
 [node]
@@ -1157,6 +1161,8 @@ plan_path = "relx"
 plan_path = "renderproto"
 [repo]
 plan_path = "repo"
+[restic]
+plan_path = "restic"
 [rethinkdb]
 plan_path = "rethinkdb"
 [ripgrep]
