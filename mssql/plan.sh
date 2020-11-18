@@ -10,6 +10,11 @@ pkg_shasum=359d436c4a40112ab1ce2e2f1e3ef1d4136fa9ffe26eeb7ac18e49d5be6eaee3
 pkg_filename="mssql-server_${pkg_version}_amd64.deb"
 pkg_svc_user="root"
 pkg_svc_group="root"
+pkg_exports=(
+  [port]=port
+)
+pkg_exposes=(port)
+
 pkg_deps=(
   core/libcxx
   core/libcxxabi
@@ -22,19 +27,17 @@ pkg_deps=(
   core/python2
   core/util-linux
 )
+
 pkg_build_deps=(
   core/dpkg
   core/patchelf
 )
+
 pkg_bin_dirs=(bin)
 pkg_lib_dirs=(lib)
-pkg_exports=(
-  [port]=port
-)
-pkg_exposes=(port)
 
 do_unpack() {
-  dpkg -x "${HAB_CACHE_SRC_PATH}/${pkg_filename}" "${HAB_CACHE_SRC_PATH}/${pkg_dirname}"
+  dpkg -x "$HAB_CACHE_SRC_PATH/$pkg_filename" "$HAB_CACHE_SRC_PATH/$pkg_dirname"
 }
 
 do_build() {
@@ -42,24 +45,16 @@ do_build() {
 }
 
 do_install() {
-  cp -a opt/mssql/bin "${pkg_prefix}"
-  cp -a opt/mssql/lib "${pkg_prefix}"
+  cp -a opt/mssql/bin "$pkg_prefix"
+  cp -a opt/mssql/lib "$pkg_prefix"
 
   PYTHONPATH="$(pkg_path_for core/python2)"
-  sed -i "s#/usr/bin/python#${PYTHONPATH}/bin/python#" "${pkg_prefix}/lib/mssql-conf/mssql-conf.py"
+  sed -i "s#/usr/bin/python#$PYTHONPATH/bin/python#" "$pkg_prefix/lib/mssql-conf/mssql-conf.py"
 
-  elfs_to_patch=(
-    "${pkg_prefix}/bin/paldumper"
-    "${pkg_prefix}/bin/sqlservr"
-  )
-  for elf in "${elfs_to_patch[@]}"; do
-    patchelf \
-      --interpreter "$(pkg_path_for glibc)/lib/ld-linux-x86-64.so.2" \
-      --set-rpath "${LD_RUN_PATH}" "${elf}"
-  done
-
-  find "${pkg_prefix}/lib" -type f -name '*.so*' \
-    -exec patchelf --set-rpath "${LD_RUN_PATH}" {} \;
+  find "$pkg_prefix/bin" -type f -name '*' \
+    -exec patchelf --interpreter "$(pkg_path_for glibc)/lib/ld-linux-x86-64.so.2" --set-rpath "$LD_RUN_PATH" {} \;
+  find "$pkg_prefix/lib" -type f -name '*.so*' \
+    -exec patchelf --set-rpath "$LD_RUN_PATH" {} \;
 }
 
 do_strip() {
