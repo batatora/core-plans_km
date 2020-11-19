@@ -13,7 +13,3 @@ Binary package
 ## Usage
 
 *TODO: Add instructions for usage*
-
-## Included GeoLite data
-
-This product includes GeoLite data created by MaxMind, available from [http://www.maxmind.com](http://www.maxmind.com).
