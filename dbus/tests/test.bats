@@ -1,6 +1,6 @@
 source "${BATS_TEST_DIRNAME}/../plan.sh"
 
 @test "Version matches" {
-  result="$(curator --version | awk '{print $3}')"
+  result="$(dbus-daemon --version | head -1 | awk '{print $5}')"
   [ "$result" = "${pkg_version}" ]
 }
