@@ -1,6 +1,6 @@
 source "${BATS_TEST_DIRNAME}/../plan.sh"
 
 @test "Version matches" {
-  result="$(git --version | awk '{print $3}')"
+  result="$(gnuplot --version | awk '{print $2,".",$4}' | tr -d " ")"
   [ "$result" = "${pkg_version}" ]
 }
