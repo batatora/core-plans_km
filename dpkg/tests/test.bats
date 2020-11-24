@@ -1,6 +1,6 @@
 source "${BATS_TEST_DIRNAME}/../plan.sh"
 
 @test "Version matches" {
-  result="$(docker-compose --version | awk '{print $3}' | tr -d ',')"
+  result="$(dpkg --version | head -1 | awk '{print $7}')"
   [ "$result" = "${pkg_version}" ]
 }
