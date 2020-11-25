@@ -642,8 +642,6 @@ plan_path = "libjpeg-turbo"
 plan_path = "libksba"
 [libmpc]
 plan_path = "libmpc"
-[libnl]
-plan_path = "libnl"
 [libnsl]
 plan_path = "libnsl"
 [libossp-uuid]
@@ -1159,8 +1157,6 @@ plan_path = "relx"
 plan_path = "renderproto"
 [repo]
 plan_path = "repo"
-[restic]
-plan_path = "restic"
 [rethinkdb]
 plan_path = "rethinkdb"
 [ripgrep]
