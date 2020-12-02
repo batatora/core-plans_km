@@ -1,5 +1,3 @@
-ui = {{cfg.server.ui}}
-
 storage "{{cfg.backend.storage}}" {
   path = "{{pkg.svc_data_path}}/{{cfg.backend.path}}"
 }
