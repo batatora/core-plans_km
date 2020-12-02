@@ -13,11 +13,10 @@ hab pkg binlink core/busybox-static wc
 hab pkg binlink core/busybox-static uniq
 
 source "${PLANDIR}/plan.sh"
+# Unload the service if its already loaded.
+hab svc unload "${HAB_ORIGIN}/${pkg_name}"
 
 if [ "${SKIPBUILD}" -eq 0 ]; then
-  # Unload the service if its already loaded.
-  hab svc unload "${HAB_ORIGIN}/${pkg_name}"
-
   set -e
   pushd "${PLANDIR}" > /dev/null
   build
@@ -28,7 +27,7 @@ if [ "${SKIPBUILD}" -eq 0 ]; then
   set +e
 
   # Give some time for the service to start up
-  sleep 10
+  sleep 5
 fi
 
 bats "${TESTDIR}/test.bats"
