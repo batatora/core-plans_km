@@ -71,6 +71,8 @@ plan_path = "boost"
 plan_path = "boost159"
 [boringssl]
 plan_path = "boringssl"
+[buildkite-agent]
+plan_path = "buildkite-agent"
 [bundler]
 plan_path = "bundler"
 [busybox]
@@ -500,8 +502,6 @@ plan_path = "jbigkit"
 plan_path = "jdk7"
 [jdk8]
 plan_path = "jdk8"
-[jdk9]
-plan_path = "jdk9"
 [jemalloc]
 plan_path = "jemalloc"
 [jenkins]
@@ -520,8 +520,6 @@ plan_path = "jq-static"
 plan_path = "jre7"
 [jre8]
 plan_path = "jre8"
-[jre9]
-plan_path = "jre9"
 [jruby]
 plan_path = "jruby"
 [jruby1]
@@ -814,8 +812,6 @@ plan_path = "mawk"
 plan_path = "mc"
 [memcached]
 plan_path = "memcached"
-[mention-bot]
-plan_path = "mention-bot"
 [mercurial]
 plan_path = "mercurial"
 [mesa]
@@ -1161,6 +1157,8 @@ plan_path = "relx"
 plan_path = "renderproto"
 [repo]
 plan_path = "repo"
+[restic]
+plan_path = "restic"
 [rethinkdb]
 plan_path = "rethinkdb"
 [ripgrep]
@@ -1184,11 +1182,6 @@ plan_path = "rq"
 plan_path = "rsync"
 [ruby]
 plan_path = "ruby"
-[ruby22]
-plan_path = "ruby22"
-paths = [
-  "ruby/*"
-]
 [ruby23]
 plan_path = "ruby23"
 paths = [
