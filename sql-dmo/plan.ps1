@@ -10,12 +10,9 @@ $pkg_upstream_url="https://www.microsoft.com/en-us/download/details.aspx?id=2479
 $pkg_build_deps=@("core/lessmsi")
 
 function Invoke-Unpack() {
+    lessmsi x (Resolve-Path "$HAB_CACHE_SRC_PATH/SQLServer2005_BC_x64.msi").Path
     mkdir "$HAB_CACHE_SRC_PATH/$pkg_dirname"
-    Push-Location "$HAB_CACHE_SRC_PATH/$pkg_dirname"
-    try {
-        lessmsi x (Resolve-Path "$HAB_CACHE_SRC_PATH/SQLServer2005_BC_x64.msi").Path
-    }
-    finally { Pop-Location }
+    Move-Item "SQLServer2005_BC_x64" "$HAB_CACHE_SRC_PATH/$pkg_dirname"
 }
 
 function Invoke-Install() {

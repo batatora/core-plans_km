@@ -1,6 +1,6 @@
 pkg_name=bundler
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
-pkg_version=1.16.2
+pkg_version=1.16.6
 pkg_origin=core
 pkg_license=('bundler')
 pkg_description="The Ruby language dependency manager"
@@ -22,7 +22,7 @@ do_build() {
 
 do_install() {
   build_line "Installing from RubyGems"
-  gem install "$pkg_name" -v "$pkg_version" --no-ri --no-rdoc
+  gem install "$pkg_name" -v "$pkg_version" --no-document
   # Note: We are not cleaning the gem cache as this artifact
   # is reused by other packages for speed.
   wrap_ruby_bin "$pkg_prefix/bin/bundle"
