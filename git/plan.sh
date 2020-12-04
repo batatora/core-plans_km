@@ -19,7 +19,6 @@ pkg_deps=(
   core/glibc
   core/openssh
   core/perl
-  core/sed
   core/zlib
 )
 pkg_build_deps=(core/make core/gcc)
