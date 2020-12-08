@@ -36,7 +36,7 @@ do_build() {
   cabal update
 
   # Install dependencies
-  cabal install --only-dependencies --jobs=1
+  cabal install --only-dependencies
 
   # Configure and Build
   cabal configure --prefix="$pkg_prefix"

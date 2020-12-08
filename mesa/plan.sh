@@ -36,7 +36,7 @@ pkg_build_deps=(
   core/glproto
   core/kbproto
   core/libpthread-stubs
-  core/llvm5
+  core/llvm
   core/make
   core/pkg-config
   core/python2
