@@ -13,7 +13,6 @@ pkg_deps=(
   core/nspr
   core/sqlite
   core/zlib
-  core/gcc-libs
 )
 pkg_build_deps=(
   core/gcc
