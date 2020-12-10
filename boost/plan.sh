@@ -12,7 +12,6 @@ pkg_dirname=boost_1_66_0
 pkg_deps=(
   core/glibc
   core/gcc-libs
-  core/zlib
 )
 
 pkg_build_deps=(
@@ -28,6 +27,7 @@ pkg_build_deps=(
   core/libxslt
   core/openssl
   core/which
+  core/zlib
 )
 
 pkg_lib_dirs=(lib)
