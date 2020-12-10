@@ -11,7 +11,6 @@ pkg_build_deps=(
   core/jq-static
   core/patchelf
   core/coreutils
-  core/go
 )
 pkg_deps=(core/glibc)
 pkg_bin_dirs=(bin)

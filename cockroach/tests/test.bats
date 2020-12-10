@@ -1,16 +1,16 @@
 source "${BATS_TEST_DIRNAME}/../plan.sh"
 
 @test "Command is on path" {
-  [ "$(command -v cockroachoss)" ]
+  [ "$(command -v cockroach)" ]
 }
 
 @test "Version matches" {
-  result="$(cockroachoss version | head -1 | awk '{print $3}')"
+  result="$(cockroach version | head -1 | awk '{print $3}')"
   [ "$result" = "v${pkg_version}" ]
 }
 
 @test "Help command" {
-  run cockroachoss help
+  run cockroach help
   [ $status -eq 0 ]
 }
 
