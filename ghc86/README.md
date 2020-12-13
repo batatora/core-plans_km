@@ -1,6 +1,6 @@
-# gradle4
+# ghc86
 
-A powerful build system for the JVM
+The Glasgow Haskell Compiler
 
 ## Maintainers
 

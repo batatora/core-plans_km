@@ -359,6 +359,11 @@ plan_path = "ghc84"
 paths = [
   "ghc/*",
 ]
+[ghc86]
+plan_path = "ghc86"
+paths = [
+  "ghc/*",
+]
 [giflib]
 plan_path = "giflib"
 [gifsicle]
@@ -417,16 +422,6 @@ plan_path = "gperftools"
 plan_path = "gpgme"
 [gradle]
 plan_path = "gradle"
-[gradle4]
-plan_path = "gradle4"
-paths = [
-  "gradle/*",
-]
-[gradle5]
-plan_path = "gradle5"
-paths = [
-  "gradle/*",
-]
 [grafana]
 plan_path = "grafana"
 [graphviz]
