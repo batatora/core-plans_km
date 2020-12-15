@@ -57,6 +57,16 @@ plan_path = "bazel"
 plan_path = "bc"
 [bdwgc]
 plan_path = "bdwgc"
+[bdwgc7]
+plan_path = "bdwgc7"
+paths = [
+  "bdwgc/*",
+]
+[bdwgc8]
+plan_path = "bdwgc8"
+paths = [
+  "bdwgc/*",
+]
 [benchmark]
 plan_path = "benchmark"
 [bind]
@@ -829,6 +839,8 @@ plan_path = "mercurial"
 plan_path = "mesa"
 [meson]
 plan_path = "meson"
+[metricbeat]
+plan_path = "metricbeat"
 [mg]
 plan_path = "mg"
 [minio]
