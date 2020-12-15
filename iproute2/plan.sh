@@ -13,14 +13,12 @@ pkg_build_deps=(
   core/bison
   core/flex
   core/gcc
+  core/iptables
   core/m4
   core/make
   core/pkg-config
 )
-pkg_deps=(
-    core/glibc
-    core/iptables
-)
+pkg_deps=(core/glibc)
 
 do_build() {
   SBINDIR="$pkg_prefix/sbin"
