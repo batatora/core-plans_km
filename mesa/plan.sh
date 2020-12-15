@@ -36,13 +36,12 @@ pkg_build_deps=(
   core/glproto
   core/kbproto
   core/libpthread-stubs
-  core/llvm
+  core/llvm5
   core/make
   core/pkg-config
   core/python2
   core/xextproto
   core/xproto
-  core/patch
 )
 pkg_include_dirs=(include)
 pkg_lib_dirs=(
@@ -56,9 +55,6 @@ do_prepare() {
     ln -sv "$(pkg_path_for file)/bin/file" /usr/bin/file
     _clean_file=true
   fi
-
-  # https://patchwork.freedesktop.org/patch/214086/
-  patch -p0 < "$PLAN_CONTEXT"/patches/000-llvm7-support.patch
 }
 
 do_build() {
