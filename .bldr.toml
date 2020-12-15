@@ -656,8 +656,6 @@ plan_path = "libjpeg-turbo"
 plan_path = "libksba"
 [libmpc]
 plan_path = "libmpc"
-[libnl]
-plan_path = "libnl"
 [libnsl]
 plan_path = "libnsl"
 [libossp-uuid]
@@ -829,6 +827,8 @@ plan_path = "mercurial"
 plan_path = "mesa"
 [meson]
 plan_path = "meson"
+[metricbeat]
+plan_path = "metricbeat"
 [mg]
 plan_path = "mg"
 [minio]
@@ -952,8 +952,6 @@ plan_path = "opam"
 plan_path = "openjpeg"
 [openldap]
 plan_path = "openldap"
-[openjdk11]
-plan_path = "openjdk11"
 [openresty]
 plan_path = "openresty"
 [openssh]
